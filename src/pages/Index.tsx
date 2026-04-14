@@ -80,7 +80,7 @@ export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen" style={{ background: "hsl(20, 15%, 6%)" }}>
+    <div className="min-h-screen" style={{ background: "hsl(150, 35%, 7%)" }}>
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
@@ -130,7 +130,7 @@ export default function Index() {
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Экзотические рептилии" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(135deg, hsla(20,15%,4%,0.95) 0%, hsla(142,30%,8%,0.78) 50%, hsla(20,15%,4%,0.90) 100%)"
+            background: "linear-gradient(135deg, hsla(150,40%,4%,0.96) 0%, hsla(142,35%,8%,0.72) 50%, hsla(150,40%,4%,0.92) 100%)"
           }} />
         </div>
 
@@ -240,8 +240,8 @@ export default function Index() {
             {SERVICES.map((s) => (
               <div key={s.title} className={`card-hover rounded-2xl p-7 relative overflow-hidden flex flex-col ${s.highlight ? "green-glow" : ""}`}
                 style={{
-                  background: s.highlight ? "linear-gradient(135deg, hsla(142,60%,35%,0.2), hsla(22,18%,10%))" : "hsl(22,18%,9%)",
-                  border: s.highlight ? "1px solid hsla(142,60%,42%,0.5)" : "1px solid hsl(22,18%,18%)"
+                  background: s.highlight ? "linear-gradient(135deg, hsla(142,60%,35%,0.25), hsla(150,30%,10%))" : "hsl(150,30%,10%)",
+                  border: s.highlight ? "1px solid hsla(142,60%,42%,0.5)" : "1px solid hsl(150,25%,18%)"
                 }}>
                 {s.highlight && (
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold"
@@ -296,7 +296,7 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
               <div key={a.name} className="card-hover rounded-2xl p-6 text-center group"
-                style={{ background: "hsl(22,18%,9%)", border: "1px solid hsl(22,18%,18%)" }}>
+                style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                 <div className="text-5xl mb-3 group-hover:animate-float inline-block">{a.emoji}</div>
                 <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
                 <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
@@ -328,7 +328,7 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
             {TRUST.map((t) => (
               <div key={t.label} className="card-hover rounded-2xl p-5 text-center"
-                style={{ background: "hsl(22,18%,9%)", border: "1px solid hsl(22,18%,18%)" }}>
+                style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
                   style={{ background: "linear-gradient(135deg, hsla(142,60%,35%,0.3), hsla(43,74%,52%,0.15))", border: "1px solid hsla(142,60%,42%,0.3)" }}>
                   <Icon name={t.icon as "Shield"} size={20} style={{ color: "hsl(142,60%,55%)" }} />
@@ -341,7 +341,7 @@ export default function Index() {
 
           {/* Страхи */}
           <div className="rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center"
-            style={{ background: "hsl(22,18%,9%)", border: "1px solid hsl(22,18%,18%)" }}>
+            style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
             <div>
               <div className="text-5xl mb-4">😰</div>
               <h3 className="font-cormorant text-3xl font-bold mb-4">
@@ -360,8 +360,8 @@ export default function Index() {
               ].map(({ e, text, active }) => (
                 <div key={text} className="flex items-center gap-3 p-4 rounded-xl"
                   style={{
-                    background: active ? "hsla(142,60%,42%,0.15)" : "hsl(22,18%,12%)",
-                    border: `1px solid ${active ? "hsla(142,60%,42%,0.4)" : "hsl(22,18%,20%)"}`
+                    background: active ? "hsla(142,60%,42%,0.15)" : "hsl(150,28%,13%)",
+                    border: `1px solid ${active ? "hsla(142,60%,42%,0.4)" : "hsl(150,25%,20%)"}`
                   }}>
                   <span className="text-xl">{e}</span>
                   <span className="text-sm" style={{ color: active ? "hsl(142,60%,65%)" : "hsla(45,30%,92%,0.7)" }}>{text}</span>
@@ -385,7 +385,7 @@ export default function Index() {
           <div className="max-w-2xl mx-auto space-y-3">
             {FAQS.map((faq, i) => (
               <div key={i} className="rounded-2xl overflow-hidden transition-all"
-                style={{ background: "hsl(22,18%,9%)", border: `1px solid ${openFaq === i ? "hsla(142,60%,42%,0.5)" : "hsl(22,18%,18%)"}` }}>
+                style={{ background: "hsl(150,30%,10%)", border: `1px solid ${openFaq === i ? "hsla(142,60%,42%,0.5)" : "hsl(150,25%,18%)"}` }}>
                 <button className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                   <span className="font-semibold">{faq.q}</span>
@@ -407,7 +407,7 @@ export default function Index() {
       {/* CTA BAND */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ background: "linear-gradient(135deg, hsl(142,40%,12%), hsl(20,15%,8%))" }} />
+          style={{ background: "linear-gradient(135deg, hsl(142,45%,10%), hsl(150,40%,8%))" }} />
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at center, hsl(43,74%,52%), transparent 60%)" }} />
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -443,7 +443,7 @@ export default function Index() {
                 { icon: "Clock", label: "Режим работы", value: "Уточняйте при записи" },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-start gap-4 p-5 rounded-2xl"
-                  style={{ background: "hsl(22,18%,9%)", border: "1px solid hsl(22,18%,18%)" }}>
+                  style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: "hsla(142,60%,42%,0.2)", border: "1px solid hsla(142,60%,42%,0.3)" }}>
                     <Icon name={icon as "MapPin"} size={18} style={{ color: "hsl(142,60%,55%)" }} />
@@ -482,7 +482,7 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: "hsl(20,15%,4%)", borderTop: "1px solid hsl(22,18%,14%)" }}>
+      <footer style={{ background: "hsl(150,40%,4%)", borderTop: "1px solid hsl(150,25%,13%)" }}>
         <div className="container mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">

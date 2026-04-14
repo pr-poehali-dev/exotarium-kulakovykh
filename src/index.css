@@ -4,32 +4,32 @@
 
 @layer base {
   :root {
-    --background: 20 15% 6%;
+    --background: 150 35% 7%;
     --foreground: 45 30% 92%;
 
-    --card: 22 18% 9%;
+    --card: 150 30% 10%;
     --card-foreground: 45 30% 92%;
 
-    --popover: 22 18% 9%;
+    --popover: 150 30% 10%;
     --popover-foreground: 45 30% 92%;
 
     --primary: 142 60% 42%;
-    --primary-foreground: 20 15% 6%;
+    --primary-foreground: 150 35% 7%;
 
     --secondary: 43 74% 52%;
-    --secondary-foreground: 20 15% 6%;
+    --secondary-foreground: 150 35% 7%;
 
-    --muted: 22 15% 15%;
-    --muted-foreground: 45 15% 55%;
+    --muted: 150 25% 16%;
+    --muted-foreground: 150 15% 58%;
 
     --accent: 43 74% 52%;
-    --accent-foreground: 20 15% 6%;
+    --accent-foreground: 150 35% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 45 30% 92%;
 
-    --border: 22 18% 18%;
-    --input: 22 18% 14%;
+    --border: 150 25% 18%;
+    --input: 150 28% 13%;
     --ring: 142 60% 42%;
 
     --radius: 0.75rem;
@@ -41,13 +41,13 @@
     --gold-light: 43 80% 65%;
     --gold-dark: 38 70% 38%;
 
-    --sidebar-background: 22 18% 8%;
+    --sidebar-background: 150 30% 9%;
     --sidebar-foreground: 45 30% 92%;
     --sidebar-primary: 142 60% 42%;
-    --sidebar-primary-foreground: 20 15% 6%;
-    --sidebar-accent: 22 15% 15%;
+    --sidebar-primary-foreground: 150 35% 7%;
+    --sidebar-accent: 150 25% 16%;
     --sidebar-accent-foreground: 45 30% 92%;
-    --sidebar-border: 22 18% 18%;
+    --sidebar-border: 150 25% 18%;
     --sidebar-ring: 142 60% 42%;
   }
 }
@@ -64,7 +64,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Golos Text", sans-serif;
-    background-color: hsl(20, 15%, 6%);
+    background-color: hsl(150, 35%, 7%);
   }
 
   h1,
@@ -80,7 +80,7 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(20, 15%, 8%);
+  background: hsl(150, 35%, 5%);
 }
 ::-webkit-scrollbar-thumb {
   background: hsl(142, 60%, 30%);
@@ -277,13 +277,13 @@
 }
 
 .glass {
-  background: hsla(22, 18%, 10%, 0.7);
+  background: hsla(150, 30%, 10%, 0.75);
   backdrop-filter: blur(16px);
-  border: 1px solid hsla(142, 40%, 30%, 0.25);
+  border: 1px solid hsla(142, 40%, 30%, 0.3);
 }
 
 .glass-gold {
-  background: hsla(38, 40%, 12%, 0.7);
+  background: hsla(150, 28%, 10%, 0.75);
   backdrop-filter: blur(16px);
   border: 1px solid hsla(43, 74%, 52%, 0.25);
 }
@@ -343,8 +343,8 @@
 input,
 textarea,
 select {
-  background: hsl(22, 18%, 10%) !important;
-  border-color: hsl(22, 18%, 22%) !important;
+  background: hsl(150, 28%, 11%) !important;
+  border-color: hsl(150, 25%, 22%) !important;
   color: hsl(45, 30%, 90%) !important;
 }
 input:focus,
