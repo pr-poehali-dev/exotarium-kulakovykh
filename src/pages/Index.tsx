@@ -153,7 +153,7 @@ export default function Index() {
               <span className="text-sm" style={{ color: "hsl(142,60%,65%)" }}>г. Артём · Лазо 11, ДЦ «Непоседа»</span>
             </div>
 
-            <h1 className="font-cormorant font-bold leading-none mb-4"
+            <h1 className="font-cormorant font-bold leading-none mb-4 uppercase"
               style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}>
               Экзотариум<br />
               <span className="shimmer-text">Кулаковых</span>
