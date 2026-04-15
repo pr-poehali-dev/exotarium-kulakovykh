@@ -6,8 +6,8 @@ const HERO_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa69
 const FAMILY_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/1e7b6c70-efd3-4127-a064-aa775e69b780.jpg";
 const CHAMELEON_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/8396d348-7632-4b66-bc84-b86fee6cc01c.jpg";
 
-const PHONE = "+79241200902";
-const PHONE_DISPLAY = "+7 924 120-09-02";
+const PHONE = "+79143428274";
+const PHONE_DISPLAY = "+7 914 342-82-74";
 
 const SERVICES = [
   {
