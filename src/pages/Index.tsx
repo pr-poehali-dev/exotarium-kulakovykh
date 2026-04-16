@@ -477,7 +477,14 @@ export default function Index() {
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at center, hsl(43,74%,52%), transparent 60%)" }} />
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="text-6xl mb-6 animate-float">🦎</div>
+          <div className="mb-6 animate-float flex justify-center">
+            <img
+              src="https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/3befca5a-ec0d-48ad-ad36-0fd983a41c00.png"
+              alt="Экзотариум Кулаковых"
+              className="w-40 h-40 rounded-full object-cover"
+              style={{ border: "2px solid hsla(43,74%,52%,0.4)", boxShadow: "0 0 40px hsla(142,60%,42%,0.3)" }}
+            />
+          </div>
           <h2 className="font-cormorant text-5xl font-bold mb-4">
             Не откладывайте <span className="gold-text">чудо</span>
           </h2>
