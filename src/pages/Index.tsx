@@ -508,8 +508,8 @@ export default function Index() {
             <h2 className="font-cormorant text-5xl font-bold mb-4">Как нас <span className="gold-text">найти</span></h2>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {/* Как нас найти */}
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            {/* Левая колонка: контакты + карта */}
             <div className="space-y-5">
               {[
                 { icon: "MapPin", label: "Адрес", value: "г. Артём, ул. Лазо 11\nДетский Центр «Непоседа»" },
@@ -539,21 +539,20 @@ export default function Index() {
                 </a>
                 <div className="text-sm mt-2" style={{ color: "hsla(45,30%,92%,0.5)" }}>Забронируем удобное время</div>
               </div>
-            </div>
 
-            {/* Карта */}
-            <div className="rounded-2xl overflow-hidden green-glow relative" style={{ height: "100%", minHeight: "26rem" }}>
-              <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=132.766788,43.360263&z=15&pt=132.766788,43.360263,pm2gnm"
-                width="100%" height="100%" frameBorder="0" title="Карта Экзотариума Кулаковых"
-                style={{ filter: "grayscale(60%) brightness(0.55) hue-rotate(100deg)", minHeight: "26rem" }} />
-              <div className="absolute bottom-4 left-4 glass px-4 py-3 rounded-xl">
-                <div className="text-xs text-muted-foreground">Экзотариум Кулаковых</div>
-                <div className="text-sm font-semibold">г. Артём, Лазо 11</div>
+              <div className="rounded-2xl overflow-hidden green-glow relative" style={{ height: "18rem" }}>
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=132.766788,43.360263&z=15&pt=132.766788,43.360263,pm2gnm"
+                  width="100%" height="100%" frameBorder="0" title="Карта Экзотариума Кулаковых"
+                  style={{ filter: "grayscale(60%) brightness(0.55) hue-rotate(100deg)", minHeight: "18rem" }} />
+                <div className="absolute bottom-4 left-4 glass px-4 py-3 rounded-xl">
+                  <div className="text-xs text-muted-foreground">Экзотариум Кулаковых</div>
+                  <div className="text-sm font-semibold">г. Артём, Лазо 11</div>
+                </div>
               </div>
             </div>
 
-            {/* ФОРМА */}
+            {/* ФОРМА справа */}
             <div className="rounded-2xl p-8" style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
               <h3 className="font-cormorant text-2xl font-bold mb-2">Оставить заявку</h3>
               <p className="text-sm mb-6" style={{ color: "hsla(45,30%,92%,0.5)" }}>
