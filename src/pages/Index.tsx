@@ -152,6 +152,7 @@ export default function Index() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [modal, setModal] = useState<ModalType>(null);
+  const [agreed, setAgreed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -684,10 +685,42 @@ export default function Index() {
                       Что-то пошло не так. Попробуйте ещё раз или позвоните нам.
                     </p>
                   )}
+                  <label className="flex items-start gap-3 cursor-pointer select-none">
+                    <div className="relative flex-shrink-0 mt-0.5">
+                      <input
+                        type="checkbox"
+                        checked={agreed}
+                        onChange={e => setAgreed(e.target.checked)}
+                        className="sr-only"
+                      />
+                      <div
+                        className="w-5 h-5 rounded-md flex items-center justify-center transition-colors"
+                        style={{
+                          background: agreed ? "hsl(142,60%,42%)" : "hsl(150,28%,13%)",
+                          border: `1px solid ${agreed ? "hsl(142,60%,42%)" : "hsl(150,25%,28%)"}`,
+                        }}
+                      >
+                        {agreed && <Icon name="Check" size={12} style={{ color: "#fff" }} />}
+                      </div>
+                    </div>
+                    <span className="text-xs leading-relaxed" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                      Я соглашаюсь с{" "}
+                      <button type="button" onClick={e => { e.preventDefault(); setModal("consent"); }}
+                        className="underline hover:opacity-80 transition-opacity">
+                        обработкой персональных данных
+                      </button>{" "}
+                      и принимаю{" "}
+                      <button type="button" onClick={e => { e.preventDefault(); setModal("privacy"); }}
+                        className="underline hover:opacity-80 transition-opacity">
+                        политику конфиденциальности
+                      </button>
+                    </span>
+                  </label>
+
                   <button
                     type="submit"
-                    disabled={formState === "loading"}
-                    className="btn-green w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-60"
+                    disabled={formState === "loading" || !agreed}
+                    className="btn-green w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-40"
                   >
                     {formState === "loading" ? (
                       <>
@@ -701,18 +734,7 @@ export default function Index() {
                       </>
                     )}
                   </button>
-                  <p className="text-xs text-center" style={{ color: "hsla(45,30%,92%,0.3)" }}>
-                    Нажимая кнопку, вы соглашаетесь с{" "}
-                    <button type="button" onClick={() => setModal("consent")}
-                      className="underline hover:opacity-80 transition-opacity" style={{ color: "hsla(45,30%,92%,0.5)" }}>
-                      обработкой персональных данных
-                    </button>{" "}
-                    и принимаете{" "}
-                    <button type="button" onClick={() => setModal("privacy")}
-                      className="underline hover:opacity-80 transition-opacity" style={{ color: "hsla(45,30%,92%,0.5)" }}>
-                      политику конфиденциальности
-                    </button>
-                  </p>
+
                 </form>
               )}
             </div>
