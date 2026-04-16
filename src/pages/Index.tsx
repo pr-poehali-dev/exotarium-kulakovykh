@@ -109,25 +109,50 @@ export default function Index() {
             {PHONE_DISPLAY}
           </a>
 
-          <button className="lg:hidden text-foreground" onClick={() => setMenuOpen(!menuOpen)}>
-            <Icon name={menuOpen ? "X" : "Menu"} size={24} />
+          <button className="lg:hidden text-foreground p-1" onClick={() => setMenuOpen(!menuOpen)}>
+            <Icon name={menuOpen ? "X" : "Menu"} size={26} />
           </button>
         </div>
-
-        {menuOpen && (
-          <div className="lg:hidden glass border-t border-white/5 py-4">
-            {[["#home","Главная"],["#services","Услуги"],["#animals","Питомцы"],["#trust","О нас"],["#faq","Вопросы"],["#contacts","Контакты"]].map(([href, label]) => (
-              <a key={href} href={href} className="block px-6 py-3 text-foreground/80 hover:text-foreground"
-                onClick={() => setMenuOpen(false)}>{label}</a>
-            ))}
-            <div className="px-6 pt-3">
-              <a href={`tel:${PHONE}`} className="btn-gold flex items-center justify-center gap-2 w-full py-3 rounded-full font-semibold">
-                <Icon name="Phone" size={16} /> {PHONE_DISPLAY}
-              </a>
-            </div>
-          </div>
-        )}
       </nav>
+
+      {/* MOBILE MENU OVERLAY */}
+      <div
+        className="lg:hidden fixed inset-0 z-40 flex flex-col transition-all duration-300"
+        style={{
+          background: "hsl(150,35%,5%)",
+          opacity: menuOpen ? 1 : 0,
+          pointerEvents: menuOpen ? "auto" : "none",
+          transform: menuOpen ? "translateY(0)" : "translateY(-16px)",
+        }}
+      >
+        <div className="flex-1 flex flex-col justify-center px-8 pt-24 pb-10 gap-2">
+          {[["#home","Главная"],["#services","Услуги"],["#animals","Питомцы"],["#trust","О нас"],["#faq","Вопросы"],["#contacts","Контакты"]].map(([href, label], i) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className="font-cormorant text-4xl font-bold py-3 border-b transition-colors hover:opacity-70"
+              style={{
+                color: "hsl(45,30%,92%)",
+                borderColor: "hsla(150,25%,18%,0.6)",
+                transitionDelay: menuOpen ? `${i * 40}ms` : "0ms",
+              }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+        <div className="px-8 pb-10">
+          <a
+            href={`tel:${PHONE}`}
+            className="btn-gold flex items-center justify-center gap-3 w-full py-4 rounded-2xl font-semibold text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            <Icon name="Phone" size={20} />
+            {PHONE_DISPLAY}
+          </a>
+        </div>
+      </div>
 
       {/* HERO */}
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
