@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const SUBMIT_LEAD_URL = "https://functions.poehali.dev/7a1ed6b5-239d-4dd5-a327-fba81a81ee08";
+
 const LOGO = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/ccea978b-e785-40af-a733-23243a096fe9.jpg";
 const HERO_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/388ca8e2-d3bd-4383-98d7-5ebd33d9d83a.jpg";
 const FAMILY_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/1e7b6c70-efd3-4127-a064-aa775e69b780.jpg";
@@ -82,6 +84,28 @@ const FAQS = [
 export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("loading");
+    try {
+      const res = await fetch(SUBMIT_LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setFormState("success");
+        setForm({ name: "", phone: "", message: "" });
+      } else {
+        setFormState("error");
+      }
+    } catch {
+      setFormState("error");
+    }
+  };
 
   return (
     <div className="min-h-screen" style={{ background: "hsl(150, 35%, 7%)" }}>
@@ -509,15 +533,115 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden green-glow relative" style={{ height: "26rem" }}>
-              <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=132.766788,43.360263&z=15&pt=132.766788,43.360263,pm2gnm"
-                width="100%" height="100%" frameBorder="0" title="Карта Экзотариума Кулаковых"
-                style={{ filter: "grayscale(60%) brightness(0.55) hue-rotate(100deg)" }} />
-              <div className="absolute bottom-4 left-4 glass px-4 py-3 rounded-xl">
-                <div className="text-xs text-muted-foreground">Экзотариум Кулаковых</div>
-                <div className="text-sm font-semibold">г. Артём, Лазо 11</div>
-              </div>
+            {/* ФОРМА */}
+            <div className="rounded-2xl p-8" style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
+              <h3 className="font-cormorant text-2xl font-bold mb-2">Оставить заявку</h3>
+              <p className="text-sm mb-6" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                Перезвоним в течение часа и ответим на все вопросы
+              </p>
+
+              {formState === "success" ? (
+                <div className="flex flex-col items-center justify-center py-10 gap-4 text-center">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{ background: "hsla(142,60%,42%,0.2)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
+                    <Icon name="Check" size={28} style={{ color: "hsl(142,60%,55%)" }} />
+                  </div>
+                  <div className="font-cormorant text-2xl font-bold">Заявка принята!</div>
+                  <p className="text-sm" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                    Мы перезвоним вам в ближайшее время
+                  </p>
+                  <button onClick={() => setFormState("idle")}
+                    className="text-sm underline mt-2" style={{ color: "hsl(142,60%,50%)" }}>
+                    Отправить ещё
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="text-xs text-muted-foreground mb-1.5 block">Ваше имя *</label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                      placeholder="Иван Иванов"
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
+                      style={{
+                        background: "hsl(150,28%,13%)",
+                        border: "1px solid hsl(150,25%,22%)",
+                        color: "hsl(45,30%,92%)",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-muted-foreground mb-1.5 block">Телефон *</label>
+                    <input
+                      type="tel"
+                      required
+                      value={form.phone}
+                      onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                      placeholder="+7 900 000-00-00"
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
+                      style={{
+                        background: "hsl(150,28%,13%)",
+                        border: "1px solid hsl(150,25%,22%)",
+                        color: "hsl(45,30%,92%)",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs text-muted-foreground mb-1.5 block">Сообщение</label>
+                    <textarea
+                      rows={3}
+                      value={form.message}
+                      onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                      placeholder="Хочу посетить зоопарк, записать ребёнка..."
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors resize-none"
+                      style={{
+                        background: "hsl(150,28%,13%)",
+                        border: "1px solid hsl(150,25%,22%)",
+                        color: "hsl(45,30%,92%)",
+                      }}
+                    />
+                  </div>
+                  {formState === "error" && (
+                    <p className="text-sm" style={{ color: "hsl(0,80%,65%)" }}>
+                      Что-то пошло не так. Попробуйте ещё раз или позвоните нам.
+                    </p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={formState === "loading"}
+                    className="btn-green w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 transition-opacity disabled:opacity-60"
+                  >
+                    {formState === "loading" ? (
+                      <>
+                        <Icon name="Loader2" size={18} className="animate-spin" />
+                        Отправляем...
+                      </>
+                    ) : (
+                      <>
+                        <Icon name="Send" size={18} />
+                        Отправить заявку
+                      </>
+                    )}
+                  </button>
+                  <p className="text-xs text-center" style={{ color: "hsla(45,30%,92%,0.3)" }}>
+                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                  </p>
+                </form>
+              )}
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl overflow-hidden green-glow relative" style={{ height: "22rem" }}>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=132.766788,43.360263&z=15&pt=132.766788,43.360263,pm2gnm"
+              width="100%" height="100%" frameBorder="0" title="Карта Экзотариума Кулаковых"
+              style={{ filter: "grayscale(60%) brightness(0.55) hue-rotate(100deg)" }} />
+            <div className="absolute bottom-4 left-4 glass px-4 py-3 rounded-xl">
+              <div className="text-xs text-muted-foreground">Экзотариум Кулаковых</div>
+              <div className="text-sm font-semibold">г. Артём, Лазо 11</div>
             </div>
           </div>
         </div>
