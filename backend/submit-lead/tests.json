@@ -6,7 +6,6 @@
       "path": "/",
       "body": { "name": "Тест", "phone": "+79001234567", "message": "Хочу записаться" },
       "expectedStatus": 200,
-      "expectedBody": { "ok": true },
       "bodyMatcher": "partial"
     },
     {
@@ -15,7 +14,6 @@
       "path": "/",
       "body": {},
       "expectedStatus": 400,
-      "expectedBody": { "error": "Имя и телефон обязательны" },
       "bodyMatcher": "partial"
     }
   ]

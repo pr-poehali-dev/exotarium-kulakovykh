@@ -1,42 +1,10 @@
 import json
 import os
-import urllib.request
-import urllib.parse
 import psycopg2
 
 
-def send_email(name: str, phone: str, message: str):
-    """Отправляет уведомление о новой заявке через Mail.ru API."""
-    smtp_user = os.environ["SMTP_USER"]
-    smtp_password = os.environ["SMTP_PASSWORD"]
-    notify_email = os.environ["NOTIFY_EMAIL"]
-
-    subject = f"Новая заявка с сайта — {name}"
-    body_text = f"Новая заявка с сайта Экзотариума Кулаковых\n\nИмя: {name}\nТелефон: {phone}\nСообщение: {message or '—'}"
-
-    data = urllib.parse.urlencode({
-        "email": smtp_user,
-        "password": smtp_password,
-        "from": smtp_user,
-        "to": notify_email,
-        "subject": subject,
-        "body": body_text,
-    }).encode("utf-8")
-
-    req = urllib.request.Request(
-        "https://appsmail.ru/platform/send_mail",
-        data=data,
-        method="POST",
-    )
-    req.add_header("Content-Type", "application/x-www-form-urlencoded")
-
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        result = resp.read().decode("utf-8")
-        print(f"Mail.ru API response: {result}")
-
-
 def handler(event: dict, context) -> dict:
-    """Принимает заявку из формы обратной связи, сохраняет в БД и отправляет письмо на почту."""
+    """Принимает заявку из формы обратной связи и сохраняет в БД."""
     cors = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -69,11 +37,6 @@ def handler(event: dict, context) -> dict:
     conn.commit()
     cur.close()
     conn.close()
-
-    try:
-        send_email(name, phone, message)
-    except Exception as e:
-        print(f"Email send error: {e}")
 
     return {
         "statusCode": 200,
