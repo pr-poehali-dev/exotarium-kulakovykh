@@ -21,6 +21,7 @@ const SERVICES = [
   },
   {
     emoji: "🎉",
+    image: "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/55d2486f-e8ad-4a00-90e3-dc1979e408ea.png",
     title: "Выезд на праздник — Премиум",
     desc: "День рождения, свадьба, корпоратив. Главный артист вечера — императорский удав! Шоу, фото, эмоции на весь год.",
     price: "10 000 ₽",
@@ -238,30 +239,38 @@ export default function Index() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {SERVICES.map((s) => (
-              <div key={s.title} className={`card-hover rounded-2xl p-7 relative overflow-hidden flex flex-col ${s.highlight ? "green-glow" : ""}`}
+              <div key={s.title} className={`card-hover rounded-2xl relative overflow-hidden flex flex-col ${s.highlight ? "green-glow" : ""}`}
                 style={{
                   background: s.highlight ? "linear-gradient(135deg, hsla(142,60%,35%,0.25), hsla(150,30%,10%))" : "hsl(150,30%,10%)",
                   border: s.highlight ? "1px solid hsla(142,60%,42%,0.5)" : "1px solid hsl(150,25%,18%)"
                 }}>
                 {s.highlight && (
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold"
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold z-10"
                     style={{ background: "hsl(142,60%,42%)", color: "hsl(20,15%,6%)" }}>
                     Популярно
                   </div>
                 )}
-                <div className="text-5xl mb-5">{s.emoji}</div>
-                <h3 className="font-cormorant text-2xl font-bold mb-3 leading-tight">{s.title}</h3>
-                <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "hsla(45,30%,92%,0.6)" }}>{s.desc}</p>
-                <div className="flex items-end justify-between mt-auto">
-                  <div>
-                    <div className="font-cormorant text-3xl font-bold gold-text">{s.price}</div>
-                    <div className="text-xs text-muted-foreground">{s.unit}</div>
+                {(s as {image?: string}).image ? (
+                  <div className="w-full h-44 overflow-hidden rounded-t-2xl">
+                    <img src={(s as {image?: string}).image} alt={s.title} className="w-full h-full object-cover object-top" />
                   </div>
-                  <a href={`tel:${PHONE}`}>
-                    <button className={s.highlight ? "btn-green px-5 py-2.5 rounded-full text-sm font-semibold" : "btn-gold px-5 py-2.5 rounded-full text-sm font-semibold"}>
-                      {s.cta}
-                    </button>
-                  </a>
+                ) : (
+                  <div className="text-5xl mb-5 px-7 pt-7">{s.emoji}</div>
+                )}
+                <div className="p-7 flex flex-col flex-1">
+                  <h3 className="font-cormorant text-2xl font-bold mb-3 leading-tight">{s.title}</h3>
+                  <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "hsla(45,30%,92%,0.6)" }}>{s.desc}</p>
+                  <div className="flex items-end justify-between mt-auto">
+                    <div>
+                      <div className="font-cormorant text-3xl font-bold gold-text">{s.price}</div>
+                      <div className="text-xs text-muted-foreground">{s.unit}</div>
+                    </div>
+                    <a href={`tel:${PHONE}`}>
+                      <button className={s.highlight ? "btn-green px-5 py-2.5 rounded-full text-sm font-semibold" : "btn-gold px-5 py-2.5 rounded-full text-sm font-semibold"}>
+                        {s.cta}
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
