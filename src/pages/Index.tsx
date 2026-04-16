@@ -529,17 +529,6 @@ export default function Index() {
                 </div>
               ))}
 
-              <div className="p-6 rounded-2xl text-center"
-                style={{ background: "linear-gradient(135deg, hsla(43,74%,52%,0.15), hsla(142,60%,42%,0.1))", border: "1px solid hsla(43,74%,52%,0.3)" }}>
-                <div className="font-cormorant text-2xl font-bold mb-2 gold-text">Позвоните нам</div>
-                <a href={`tel:${PHONE}`}
-                  className="font-cormorant text-4xl font-bold block hover:opacity-80 transition-opacity"
-                  style={{ color: "hsl(43,74%,62%)" }}>
-                  {PHONE_DISPLAY}
-                </a>
-                <div className="text-sm mt-2" style={{ color: "hsla(45,30%,92%,0.5)" }}>Забронируем удобное время</div>
-              </div>
-
               <div className="rounded-2xl overflow-hidden green-glow relative" style={{ height: "18rem" }}>
                 <iframe
                   src="https://yandex.ru/map-widget/v1/?ll=132.766788,43.360263&z=15&pt=132.766788,43.360263,pm2gnm"
