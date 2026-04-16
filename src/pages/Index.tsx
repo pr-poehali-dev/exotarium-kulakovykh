@@ -1,6 +1,71 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+type ModalType = "privacy" | "consent" | null;
+
+function LegalModal({ type, onClose }: { type: ModalType; onClose: () => void }) {
+  if (!type) return null;
+  const isPrivacy = type === "privacy";
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: "rgba(0,0,0,0.75)" }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-lg max-h-[80vh] overflow-y-auto rounded-2xl p-8"
+        style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}
+        onClick={e => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 opacity-50 hover:opacity-100 transition-opacity"
+        >
+          <Icon name="X" size={20} />
+        </button>
+
+        {isPrivacy ? (
+          <>
+            <h2 className="font-cormorant text-2xl font-bold mb-5">Политика конфиденциальности</h2>
+            <div className="text-sm space-y-4" style={{ color: "hsla(45,30%,92%,0.75)" }}>
+              <p><strong className="text-white">1. Общие положения</strong><br />
+              Настоящая политика определяет порядок обработки и защиты персональных данных пользователей сайта Экзотариума Кулаковых.</p>
+              <p><strong className="text-white">2. Какие данные мы собираем</strong><br />
+              Имя, номер телефона и сообщение, которые вы оставляете в форме обратной связи.</p>
+              <p><strong className="text-white">3. Цели обработки</strong><br />
+              Данные используются исключительно для связи с вами: ответа на запрос, записи на посещение или уточнения деталей мероприятия.</p>
+              <p><strong className="text-white">4. Хранение данных</strong><br />
+              Персональные данные хранятся на защищённых серверах и не передаются третьим лицам без вашего согласия.</p>
+              <p><strong className="text-white">5. Ваши права</strong><br />
+              Вы вправе в любой момент запросить изменение или удаление ваших данных, обратившись по телефону или через форму на сайте.</p>
+              <p><strong className="text-white">6. Контакты</strong><br />
+              По вопросам обработки данных: <a href={`tel:${PHONE}`} style={{ color: "hsl(142,60%,50%)" }}>{PHONE_DISPLAY}</a>, г. Артём, ул. Лазо 11.</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2 className="font-cormorant text-2xl font-bold mb-5">Согласие на обработку персональных данных</h2>
+            <div className="text-sm space-y-4" style={{ color: "hsla(45,30%,92%,0.75)" }}>
+              <p>Настоящим я, субъект персональных данных, в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных», свободно, своей волей и в своём интересе даю согласие на обработку моих персональных данных.</p>
+              <p><strong className="text-white">Оператор:</strong><br />
+              Экзотариум Кулаковых, г. Артём, ул. Лазо 11, ДЦ «Непоседа».</p>
+              <p><strong className="text-white">Перечень данных:</strong><br />
+              Имя, номер телефона, содержание сообщения.</p>
+              <p><strong className="text-white">Цель обработки:</strong><br />
+              Обратная связь, запись на посещение, информирование об услугах.</p>
+              <p><strong className="text-white">Способы обработки:</strong><br />
+              Сбор, запись, хранение, использование, передача уполномоченным лицам оператора.</p>
+              <p><strong className="text-white">Срок действия согласия:</strong><br />
+              До момента отзыва субъектом персональных данных.</p>
+              <p>Согласие может быть отозвано путём направления письменного заявления по адресу оператора или по телефону <a href={`tel:${PHONE}`} style={{ color: "hsl(142,60%,50%)" }}>{PHONE_DISPLAY}</a>.</p>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 const SUBMIT_LEAD_URL = "https://functions.poehali.dev/7a1ed6b5-239d-4dd5-a327-fba81a81ee08";
 
 const LOGO = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/ccea978b-e785-40af-a733-23243a096fe9.jpg";
@@ -86,6 +151,7 @@ export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [modal, setModal] = useState<ModalType>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,6 +175,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen" style={{ background: "hsl(150, 35%, 7%)" }}>
+      <LegalModal type={modal} onClose={() => setModal(null)} />
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
@@ -635,7 +702,16 @@ export default function Index() {
                     )}
                   </button>
                   <p className="text-xs text-center" style={{ color: "hsla(45,30%,92%,0.3)" }}>
-                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                    Нажимая кнопку, вы соглашаетесь с{" "}
+                    <button type="button" onClick={() => setModal("consent")}
+                      className="underline hover:opacity-80 transition-opacity" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                      обработкой персональных данных
+                    </button>{" "}
+                    и принимаете{" "}
+                    <button type="button" onClick={() => setModal("privacy")}
+                      className="underline hover:opacity-80 transition-opacity" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                      политику конфиденциальности
+                    </button>
                   </p>
                 </form>
               )}
@@ -664,9 +740,20 @@ export default function Index() {
                 {PHONE_DISPLAY}
               </a>
             </div>
-            <div className="text-xs text-center" style={{ color: "hsla(45,30%,92%,0.3)" }}>
-              © 2024 Экзотариум Кулаковых<br />
-              Контактный зоопарк · Выездные программы
+            <div className="text-xs text-center space-y-1" style={{ color: "hsla(45,30%,92%,0.3)" }}>
+              <div>© 2024 Экзотариум Кулаковых</div>
+              <div>Контактный зоопарк · Выездные программы</div>
+              <div className="flex gap-3 justify-center mt-1">
+                <button onClick={() => setModal("privacy")}
+                  className="underline hover:opacity-80 transition-opacity">
+                  Политика конфиденциальности
+                </button>
+                <span>·</span>
+                <button onClick={() => setModal("consent")}
+                  className="underline hover:opacity-80 transition-opacity">
+                  Обработка данных
+                </button>
+              </div>
             </div>
           </div>
         </div>
