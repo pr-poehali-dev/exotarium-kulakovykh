@@ -512,7 +512,6 @@ export default function Index() {
       <section id="faq" className="py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="text-sm font-semibold mb-3 tracking-widest uppercase" style={{ color: "hsl(142,60%,50%)" }}>FAQ</div>
             <h2 className="font-cormorant text-5xl font-bold mb-4">Частые <span className="gold-text">вопросы</span></h2>
           </div>
 
