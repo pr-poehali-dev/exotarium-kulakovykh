@@ -14,6 +14,7 @@ const SERVICES = [
     emoji: "🏠",
     image: "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/4ed8f3e0-f031-446e-96e1-9fe11b45fcfe.png",
     title: "Контактный зоопарк в Артёме",
+    subtitle: "Наша резиденция — зоопарк в Артёме",
     desc: "Добро пожаловать в наше королевство рептилий! г. Артём, Лазо 11, ДЦ «Непоседа». Полное погружение для всей семьи — можно трогать, фотографировать и задавать вопросы.",
     price: "800 ₽",
     unit: "билет",
@@ -260,7 +261,12 @@ export default function Index() {
                   <div className="text-5xl mb-5 px-7 pt-7">{s.emoji}</div>
                 )}
                 <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-cormorant text-2xl font-bold mb-3 leading-tight">{s.title}</h3>
+                  <h3 className="font-cormorant text-2xl font-bold mb-1 leading-tight">{s.title}</h3>
+                  {(s as {subtitle?: string}).subtitle && (
+                    <div className="text-xs font-semibold mb-3 tracking-wide uppercase" style={{ color: "hsl(142,60%,50%)" }}>
+                      {(s as {subtitle?: string}).subtitle}
+                    </div>
+                  )}
                   <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "hsla(45,30%,92%,0.6)" }}>{s.desc}</p>
                   <div className="flex items-end justify-between mt-auto">
                     <div>
