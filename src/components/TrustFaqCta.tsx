@@ -49,25 +49,25 @@ export default function TrustFaqCta() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
             {TRUST.map((t) => (
               <div key={t.label} className="card-hover rounded-2xl p-5 text-center"
-                style={{ background: "hsl(138,35%,97%)", border: "1px solid hsl(138,28%,82%)" }}>
+                style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3"
                   style={{ background: "linear-gradient(135deg, hsla(142,60%,35%,0.3), hsla(43,74%,52%,0.15))", border: "1px solid hsla(142,60%,42%,0.3)" }}>
                   <Icon name={t.icon as "Shield"} size={20} style={{ color: "hsl(142,60%,55%)" }} />
                 </div>
                 <div className="font-semibold mb-1 text-sm">{t.label}</div>
-                <div className="text-xs" style={{ color: "hsla(150,30%,25%,0.65)" }}>{t.desc}</div>
+                <div className="text-xs" style={{ color: "hsla(45,30%,92%,0.55)" }}>{t.desc}</div>
               </div>
             ))}
           </div>
 
           <div className="rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center"
-            style={{ background: "hsl(138,35%,97%)", border: "1px solid hsl(138,28%,82%)" }}>
+            style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
             <div>
               <div className="text-5xl mb-4">😰</div>
               <h3 className="font-cormorant text-3xl font-bold mb-4">
                 Боитесь змей?<br /><span className="gold-text">Это нормально</span>
               </h3>
-              <p className="leading-relaxed" style={{ color: "hsla(150,30%,18%,0.85)" }}>
+              <p className="leading-relaxed" style={{ color: "hsla(45,30%,92%,0.65)" }}>
                 Часто страх исчезает уже после первого знакомства. Когда видишь спокойное, красивое и грациозное животное вблизи,
                 на смену тревоге приходит восхищение. Мы умеем мягко и бережно знакомить людей с рептилиями — и детей, и взрослых.
               </p>
@@ -80,11 +80,11 @@ export default function TrustFaqCta() {
               ].map(({ e, text, active }) => (
                 <div key={text} className="flex items-center gap-3 p-4 rounded-xl"
                   style={{
-                    background: active ? "hsla(142,60%,42%,0.15)" : "hsl(138,32%,93%)",
-                    border: `1px solid ${active ? "hsla(142,60%,42%,0.4)" : "hsl(138,28%,80%)"}`
+                    background: active ? "hsla(142,60%,42%,0.15)" : "hsl(150,28%,13%)",
+                    border: `1px solid ${active ? "hsla(142,60%,42%,0.4)" : "hsl(150,25%,20%)"}`
                   }}>
                   <span className="text-xl">{e}</span>
-                  <span className="text-sm" style={{ color: active ? "hsl(142,60%,65%)" : "hsla(150,30%,25%,0.85)" }}>{text}</span>
+                  <span className="text-sm" style={{ color: active ? "hsl(142,60%,65%)" : "hsla(45,30%,92%,0.7)" }}>{text}</span>
                 </div>
               ))}
             </div>
@@ -104,7 +104,7 @@ export default function TrustFaqCta() {
           <div className="max-w-2xl mx-auto space-y-3">
             {FAQS.map((faq, i) => (
               <div key={i} className="rounded-2xl overflow-hidden transition-all"
-                style={{ background: "hsl(138,35%,97%)", border: `1px solid ${openFaq === i ? "hsla(142,60%,42%,0.5)" : "hsl(138,28%,82%)"}` }}>
+                style={{ background: "hsl(150,30%,10%)", border: `1px solid ${openFaq === i ? "hsla(142,60%,42%,0.5)" : "hsl(150,25%,18%)"}` }}>
                 <button className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                   <span className="font-semibold">{faq.q}</span>
@@ -112,8 +112,8 @@ export default function TrustFaqCta() {
                     style={{ color: openFaq === i ? "hsl(142,60%,55%)" : "hsl(215,16%,47%)", flexShrink: 0 }} />
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-5 text-sm leading-relaxed border-t border-black/5 pt-4"
-                    style={{ color: "hsla(150,30%,18%,0.85)" }}>
+                  <div className="px-6 pb-5 text-sm leading-relaxed border-t border-white/5 pt-4"
+                    style={{ color: "hsla(45,30%,92%,0.65)" }}>
                     {faq.a}
                   </div>
                 )}
@@ -126,7 +126,7 @@ export default function TrustFaqCta() {
       {/* CTA BAND */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ background: "linear-gradient(135deg, hsl(138,40%,93%), hsl(138,38%,91%))" }} />
+          style={{ background: "linear-gradient(135deg, hsl(142,45%,10%), hsl(150,40%,8%))" }} />
         <div className="absolute inset-0 opacity-10"
           style={{ background: "radial-gradient(ellipse at center, hsl(43,74%,52%), transparent 60%)" }} />
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -141,15 +141,15 @@ export default function TrustFaqCta() {
           <h2 className="font-cormorant text-5xl font-bold mb-4">
             Не откладывайте <span className="gold-text">чудо</span>
           </h2>
-          <p className="text-lg mb-2" style={{ color: "hsla(150,30%,25%,0.85)" }}>Экзотариум Кулаковых</p>
-          <p className="mb-8" style={{ color: "hsla(150,30%,25%,0.65)" }}>г. Артём, Лазо 11, Детский Центр «Непоседа»</p>
+          <p className="text-lg mb-2" style={{ color: "hsla(45,30%,92%,0.7)" }}>Экзотариум Кулаковых</p>
+          <p className="mb-8" style={{ color: "hsla(45,30%,92%,0.55)" }}>г. Артём, Лазо 11, Детский Центр «Непоседа»</p>
           <a href={`tel:${PHONE}`}>
             <button className="btn-gold px-10 py-5 rounded-full text-xl font-semibold flex items-center gap-3 mx-auto animate-pulse-gold">
               <Icon name="Phone" size={22} />
               {PHONE_DISPLAY}
             </button>
           </a>
-          <p className="mt-4 text-sm" style={{ color: "hsla(150,30%,25%,0.65)" }}>Забронируйте дату прямо сейчас</p>
+          <p className="mt-4 text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>Забронируйте дату прямо сейчас</p>
         </div>
       </section>
     </>

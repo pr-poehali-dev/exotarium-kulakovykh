@@ -59,7 +59,7 @@ export default function HeroSection() {
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="Экзотические рептилии" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(135deg, hsla(138,40%,94%,0.97) 0%, hsla(138,38%,90%,0.60) 50%, hsla(138,40%,94%,0.95) 100%)"
+            background: "linear-gradient(135deg, hsla(150,40%,4%,0.96) 0%, hsla(142,35%,8%,0.72) 50%, hsla(150,40%,4%,0.92) 100%)"
           }} />
         </div>
 
@@ -82,7 +82,7 @@ export default function HeroSection() {
               Мир чешуи, чудес и живых эмоций
             </p>
 
-            <p className="text-base leading-relaxed mb-10 max-w-lg" style={{ color: "hsla(150,30%,18%,0.85)" }}>
+            <p className="text-base leading-relaxed mb-10 max-w-lg" style={{ color: "hsla(45,30%,92%,0.65)" }}>
               Хамелеон, что меняет цвет у вас на ладони. Бородатая агама с добрым характером.
               Императорский удав — главная звезда любого праздника.
               Приходите — здесь страх превращается в восхищение.
@@ -127,7 +127,7 @@ export default function HeroSection() {
           <div className="text-center mb-16">
             <div className="text-sm font-semibold mb-3 tracking-widest uppercase" style={{ color: "hsl(142,60%,50%)" }}>Услуги</div>
             <h2 className="font-cormorant text-5xl font-bold mb-4">Что мы <span className="gold-text">предлагаем</span></h2>
-            <p className="max-w-xl mx-auto" style={{ color: "hsla(150,30%,25%,0.65)" }}>
+            <p className="max-w-xl mx-auto" style={{ color: "hsla(45,30%,92%,0.55)" }}>
               Живые эмоции для детей и взрослых — одинаково нравится и малышам, и родителям
             </p>
           </div>
@@ -136,12 +136,12 @@ export default function HeroSection() {
             {SERVICES.map((s) => (
               <div key={s.title} className={`card-hover rounded-2xl relative overflow-hidden flex flex-col ${s.highlight ? "green-glow" : ""}`}
                 style={{
-                  background: s.highlight ? "linear-gradient(135deg, hsla(142,55%,40%,0.15), hsl(138,35%,97%))" : "hsl(138,35%,97%)",
-                  border: s.highlight ? "1px solid hsla(142,60%,42%,0.5)" : "1px solid hsl(138,28%,82%)"
+                  background: s.highlight ? "linear-gradient(135deg, hsla(142,60%,35%,0.25), hsl(150,30%,10%))" : "hsl(150,30%,10%)",
+                  border: s.highlight ? "1px solid hsla(142,60%,42%,0.5)" : "1px solid hsl(150,25%,18%)"
                 }}>
                 {s.highlight && (
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold z-10"
-                    style={{ background: "hsl(142,60%,42%)", color: "hsl(150,30%,12%)" }}>
+                    style={{ background: "hsl(142,60%,42%)", color: "hsl(20,15%,6%)" }}>
                     Популярно
                   </div>
                 )}
@@ -159,7 +159,7 @@ export default function HeroSection() {
                       {(s as { subtitle?: string }).subtitle}
                     </div>
                   )}
-                  <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "hsla(150,30%,25%,0.70)" }}>{s.desc}</p>
+                  <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "hsla(45,30%,92%,0.6)" }}>{s.desc}</p>
                   <div className="flex items-end justify-between mt-auto">
                     <div>
                       <div className="font-cormorant text-3xl font-bold gold-text">{s.price}</div>
@@ -203,12 +203,12 @@ export default function HeroSection() {
             Что может удивить сильнее<br />
             <span className="gold-text">живых драконов?</span>
           </h2>
-          <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-6" style={{ color: "hsla(150,30%,25%,0.85)" }}>
+          <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-6" style={{ color: "hsla(45,30%,92%,0.7)" }}>
             Хамелеон, который меняет окраску. Бородатая агама с добрым характером. Эублефары с бархатной кожей.
             Полозы, которые вызывают не страх, а интерес. И черепашка Наташка — мудрая, спокойная и обаятельная.
           </p>
-          <p className="text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: "hsla(150,30%,25%,0.85)" }}>
-            <strong className="text-foreground">Экзотариум Кулаковых</strong> — это не обычный зоопарк.
+          <p className="text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: "hsla(45,30%,92%,0.7)" }}>
+            <strong className="text-white">Экзотариум Кулаковых</strong> — это не обычный зоопарк.
             Это место, где рептилии становятся ближе, а знакомство с ними превращается в настоящее приключение.
           </p>
         </div>
@@ -228,10 +228,10 @@ export default function HeroSection() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
               <div key={a.name} className="card-hover rounded-2xl p-6 text-center group"
-                style={{ background: "hsl(138,35%,97%)", border: "1px solid hsl(138,28%,82%)" }}>
+                style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                 <div className="text-5xl mb-3 group-hover:animate-float inline-block">{a.emoji}</div>
                 <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
-                <div className="text-sm" style={{ color: "hsla(150,30%,25%,0.65)" }}>{a.desc}</div>
+                <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
               </div>
             ))}
           </div>
