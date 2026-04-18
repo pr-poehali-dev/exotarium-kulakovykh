@@ -63,15 +63,6 @@ export default function HeroSection() {
           }} />
         </div>
 
-        <div className="absolute top-1/2 right-12 -translate-y-1/2 hidden xl:block">
-          <div className="relative w-72 h-72 flex items-center justify-center">
-            <div className="absolute inset-0 rounded-full animate-rotate-slow opacity-25"
-              style={{ border: "1px solid hsl(43,74%,52%)" }} />
-            <div className="absolute inset-6 rounded-full opacity-20"
-              style={{ border: "1px solid hsl(142,60%,42%)", animation: "rotate-slow 12s linear infinite reverse" }} />
-            <img src={LOGO} alt="Логотип" className="w-52 h-52 rounded-full object-cover green-glow" />
-          </div>
-        </div>
 
         <div className="container mx-auto px-4 pt-24 relative z-10">
           <div className="max-w-2xl">
