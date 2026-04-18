@@ -1,39 +1,32 @@
 import json
 import os
-import smtplib
-import ssl
+import urllib.request
 import psycopg2
-from email.mime.text import MIMEText
 
 
-def send_email(name: str, phone: str, message: str):
-    """Отправляет письмо с новой заявкой на почту."""
-    smtp_host = os.environ["SMTP_HOST"]
-    smtp_port = int(os.environ["SMTP_PORT"])
-    smtp_user = os.environ["SMTP_USER"]
-    smtp_password = os.environ["SMTP_PASSWORD"]
-    notify_email = os.environ["NOTIFY_EMAIL"]
+def send_telegram(name: str, phone: str, message: str):
+    """Отправляет уведомление о новой заявке в Telegram."""
+    token = os.environ["TELEGRAM_BOT_TOKEN"]
+    chat_id = os.environ["TELEGRAM_CHAT_ID"]
 
-    body = f"""Новая заявка с сайта Экзотариума Кулаковых!
+    text = (
+        f"🔔 Новая заявка!\n\n"
+        f"👤 Имя: {name}\n"
+        f"📞 Телефон: {phone}\n"
+        f"💬 Сообщение: {message or '—'}"
+    )
 
-Имя: {name}
-Телефон: {phone}
-Сообщение: {message or "—"}
-"""
-
-    msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = f"Заявка от {name} — {phone}"
-    msg["From"] = smtp_user
-    msg["To"] = notify_email
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(smtp_host, smtp_port, context=context) as server:
-        server.login(smtp_user, smtp_password)
-        server.sendmail(smtp_user, notify_email, msg.as_string())
+    data = json.dumps({"chat_id": chat_id, "text": text}).encode("utf-8")
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendMessage",
+        data=data,
+        headers={"Content-Type": "application/json"},
+    )
+    urllib.request.urlopen(req, timeout=10)
 
 
 def handler(event: dict, context) -> dict:
-    """Принимает заявку из формы обратной связи, сохраняет в БД и отправляет на почту."""
+    """Принимает заявку из формы, сохраняет в БД и отправляет уведомление в Telegram."""
     cors = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -68,7 +61,7 @@ def handler(event: dict, context) -> dict:
     conn.close()
 
     try:
-        send_email(name, phone, message)
+        send_telegram(name, phone, message)
     except Exception:
         pass
 
