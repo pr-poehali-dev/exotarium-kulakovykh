@@ -5,7 +5,7 @@ import ContactsSection from "@/components/ContactsSection";
 
 export default function Index() {
   return (
-    <div className="min-h-screen" style={{ background: "hsl(150, 35%, 7%)" }}>
+    <div className="min-h-screen" style={{ background: "hsl(138, 40%, 94%)" }}>
       <Navbar />
       <HeroSection />
       <TrustFaqCta />

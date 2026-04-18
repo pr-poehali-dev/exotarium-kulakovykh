@@ -50,7 +50,7 @@ export default function Navbar() {
       <div
         className="lg:hidden fixed inset-0 z-40 flex flex-col transition-all duration-300"
         style={{
-          background: "hsl(150,35%,5%)",
+          background: "hsl(138, 38%, 91%)",
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? "auto" : "none",
           transform: menuOpen ? "translateY(0)" : "translateY(-16px)",
@@ -64,8 +64,8 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="font-cormorant text-4xl font-bold py-3 border-b transition-colors hover:opacity-70"
               style={{
-                color: "hsl(45,30%,92%)",
-                borderColor: "hsla(150,25%,18%,0.6)",
+                color: "hsl(150,30%,15%)",
+                borderColor: "hsla(138,28%,82%,0.6)",
                 transitionDelay: menuOpen ? `${i * 40}ms` : "0ms",
               }}
             >

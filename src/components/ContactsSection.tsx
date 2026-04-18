@@ -20,7 +20,7 @@ function LegalModal({ type, onClose }: { type: ModalType; onClose: () => void })
     >
       <div
         className="relative w-full max-w-lg max-h-[80vh] overflow-y-auto rounded-2xl p-8"
-        style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}
+        style={{ background: "hsl(138,35%,97%)", border: "1px solid hsl(138,28%,82%)" }}
         onClick={e => e.stopPropagation()}
       >
         <button
@@ -33,35 +33,35 @@ function LegalModal({ type, onClose }: { type: ModalType; onClose: () => void })
         {isPrivacy ? (
           <>
             <h2 className="font-cormorant text-2xl font-bold mb-5">Политика конфиденциальности</h2>
-            <div className="text-sm space-y-4" style={{ color: "hsla(45,30%,92%,0.75)" }}>
-              <p><strong className="text-white">1. Общие положения</strong><br />
+            <div className="text-sm space-y-4" style={{ color: "hsla(150,30%,18%,0.85)" }}>
+              <p><strong className="text-foreground">1. Общие положения</strong><br />
               Настоящая политика определяет порядок обработки и защиты персональных данных пользователей сайта Экзотариума Кулаковых.</p>
-              <p><strong className="text-white">2. Какие данные мы собираем</strong><br />
+              <p><strong className="text-foreground">2. Какие данные мы собираем</strong><br />
               Имя, номер телефона и сообщение, которые вы оставляете в форме обратной связи.</p>
-              <p><strong className="text-white">3. Цели обработки</strong><br />
+              <p><strong className="text-foreground">3. Цели обработки</strong><br />
               Данные используются исключительно для связи с вами: ответа на запрос, записи на посещение или уточнения деталей мероприятия.</p>
-              <p><strong className="text-white">4. Хранение данных</strong><br />
+              <p><strong className="text-foreground">4. Хранение данных</strong><br />
               Персональные данные хранятся на защищённых серверах и не передаются третьим лицам без вашего согласия.</p>
-              <p><strong className="text-white">5. Ваши права</strong><br />
+              <p><strong className="text-foreground">5. Ваши права</strong><br />
               Вы вправе в любой момент запросить изменение или удаление ваших данных, обратившись по телефону или через форму на сайте.</p>
-              <p><strong className="text-white">6. Контакты</strong><br />
+              <p><strong className="text-foreground">6. Контакты</strong><br />
               По вопросам обработки данных: <a href={`tel:${PHONE}`} style={{ color: "hsl(142,60%,50%)" }}>{PHONE_DISPLAY}</a>, г. Артём, ул. Лазо 11.</p>
             </div>
           </>
         ) : (
           <>
             <h2 className="font-cormorant text-2xl font-bold mb-5">Согласие на обработку персональных данных</h2>
-            <div className="text-sm space-y-4" style={{ color: "hsla(45,30%,92%,0.75)" }}>
+            <div className="text-sm space-y-4" style={{ color: "hsla(150,30%,18%,0.85)" }}>
               <p>Настоящим я, субъект персональных данных, в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных», свободно, своей волей и в своём интересе даю согласие на обработку моих персональных данных.</p>
-              <p><strong className="text-white">Оператор:</strong><br />
+              <p><strong className="text-foreground">Оператор:</strong><br />
               Экзотариум Кулаковых, г. Артём, ул. Лазо 11, ДЦ «Непоседа».</p>
-              <p><strong className="text-white">Перечень данных:</strong><br />
+              <p><strong className="text-foreground">Перечень данных:</strong><br />
               Имя, номер телефона, содержание сообщения.</p>
-              <p><strong className="text-white">Цель обработки:</strong><br />
+              <p><strong className="text-foreground">Цель обработки:</strong><br />
               Обратная связь, запись на посещение, информирование об услугах.</p>
-              <p><strong className="text-white">Способы обработки:</strong><br />
+              <p><strong className="text-foreground">Способы обработки:</strong><br />
               Сбор, запись, хранение, использование, передача уполномоченным лицам оператора.</p>
-              <p><strong className="text-white">Срок действия согласия:</strong><br />
+              <p><strong className="text-foreground">Срок действия согласия:</strong><br />
               До момента отзыва субъектом персональных данных.</p>
               <p>Согласие может быть отозвано путём направления письменного заявления по адресу оператора или по телефону <a href={`tel:${PHONE}`} style={{ color: "hsl(142,60%,50%)" }}>{PHONE_DISPLAY}</a>.</p>
             </div>
@@ -119,7 +119,7 @@ export default function ContactsSection() {
                 { icon: "Clock", label: "Режим работы", value: "Уточняйте при записи" },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-start gap-4 p-5 rounded-2xl"
-                  style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
+                  style={{ background: "hsl(138,35%,97%)", border: "1px solid hsl(138,28%,82%)" }}>
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: "hsla(142,60%,42%,0.2)", border: "1px solid hsla(142,60%,42%,0.3)" }}>
                     <Icon name={icon as "MapPin"} size={18} style={{ color: "hsl(142,60%,55%)" }} />
@@ -143,9 +143,9 @@ export default function ContactsSection() {
               </div>
             </div>
 
-            <div className="rounded-2xl p-8" style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
+            <div className="rounded-2xl p-8" style={{ background: "hsl(138,35%,97%)", border: "1px solid hsl(138,28%,82%)" }}>
               <h3 className="font-cormorant text-2xl font-bold mb-2">Оставить заявку</h3>
-              <p className="text-sm mb-6" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+              <p className="text-sm mb-6" style={{ color: "hsla(150,30%,25%,0.65)" }}>
                 Перезвоним в течение часа и ответим на все вопросы
               </p>
 
@@ -156,7 +156,7 @@ export default function ContactsSection() {
                     <Icon name="Check" size={28} style={{ color: "hsl(142,60%,55%)" }} />
                   </div>
                   <div className="font-cormorant text-2xl font-bold">Заявка принята!</div>
-                  <p className="text-sm" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                  <p className="text-sm" style={{ color: "hsla(150,30%,25%,0.65)" }}>
                     Мы перезвоним вам в ближайшее время
                   </p>
                   <button onClick={() => setFormState("idle")}
@@ -176,9 +176,9 @@ export default function ContactsSection() {
                       placeholder="Иван Иванов"
                       className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
                       style={{
-                        background: "hsl(150,28%,13%)",
-                        border: "1px solid hsl(150,25%,22%)",
-                        color: "hsl(45,30%,92%)",
+                        background: "hsl(138,32%,93%)",
+                        border: "1px solid hsl(138,28%,80%)",
+                        color: "hsl(150,30%,15%)",
                       }}
                     />
                   </div>
@@ -192,9 +192,9 @@ export default function ContactsSection() {
                       placeholder="+7 900 000-00-00"
                       className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors"
                       style={{
-                        background: "hsl(150,28%,13%)",
-                        border: "1px solid hsl(150,25%,22%)",
-                        color: "hsl(45,30%,92%)",
+                        background: "hsl(138,32%,93%)",
+                        border: "1px solid hsl(138,28%,80%)",
+                        color: "hsl(150,30%,15%)",
                       }}
                     />
                   </div>
@@ -207,9 +207,9 @@ export default function ContactsSection() {
                       placeholder="Хочу посетить зоопарк, записать ребёнка..."
                       className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-colors resize-none"
                       style={{
-                        background: "hsl(150,28%,13%)",
-                        border: "1px solid hsl(150,25%,22%)",
-                        color: "hsl(45,30%,92%)",
+                        background: "hsl(138,32%,93%)",
+                        border: "1px solid hsl(138,28%,80%)",
+                        color: "hsl(150,30%,15%)",
                       }}
                     />
                   </div>
@@ -229,14 +229,14 @@ export default function ContactsSection() {
                       <div
                         className="w-5 h-5 rounded-md flex items-center justify-center transition-colors"
                         style={{
-                          background: agreed ? "hsl(142,60%,42%)" : "hsl(150,28%,13%)",
-                          border: `1px solid ${agreed ? "hsl(142,60%,42%)" : "hsl(150,25%,28%)"}`,
+                          background: agreed ? "hsl(142,60%,42%)" : "hsl(138,32%,93%)",
+                          border: `1px solid ${agreed ? "hsl(142,60%,42%)" : "hsl(138,28%,80%)"}`,
                         }}
                       >
                         {agreed && <Icon name="Check" size={12} style={{ color: "#fff" }} />}
                       </div>
                     </div>
-                    <span className="text-xs leading-relaxed" style={{ color: "hsla(45,30%,92%,0.5)" }}>
+                    <span className="text-xs leading-relaxed" style={{ color: "hsla(150,30%,25%,0.65)" }}>
                       Я соглашаюсь с{" "}
                       <button type="button" onClick={e => { e.preventDefault(); setModal("consent"); }}
                         className="underline hover:opacity-80 transition-opacity">
@@ -275,7 +275,7 @@ export default function ContactsSection() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: "hsl(150,40%,4%)", borderTop: "1px solid hsl(150,25%,13%)" }}>
+      <footer style={{ background: "hsl(138,40%,92%)", borderTop: "1px solid hsl(138,28%,82%)" }}>
         <div className="container mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
@@ -286,13 +286,13 @@ export default function ContactsSection() {
                 <div className="text-xs text-muted-foreground">Мир чешуи, чудес и живых эмоций</div>
               </div>
             </div>
-            <div className="text-center text-sm" style={{ color: "hsla(45,30%,92%,0.4)" }}>
+            <div className="text-center text-sm" style={{ color: "hsla(150,30%,25%,0.65)" }}>
               <div>г. Артём, Лазо 11, ДЦ «Непоседа»</div>
               <a href={`tel:${PHONE}`} className="hover:opacity-70 transition-opacity" style={{ color: "hsl(43,74%,55%)" }}>
                 {PHONE_DISPLAY}
               </a>
             </div>
-            <div className="text-xs text-center space-y-1" style={{ color: "hsla(45,30%,92%,0.3)" }}>
+            <div className="text-xs text-center space-y-1" style={{ color: "hsla(150,30%,25%,0.55)" }}>
               <div>© 2024 Экзотариум Кулаковых</div>
               <div>Контактный зоопарк · Выездные программы</div>
               <div className="flex gap-3 justify-center mt-1">
