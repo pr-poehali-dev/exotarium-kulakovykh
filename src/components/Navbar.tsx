@@ -36,12 +36,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full"
-            style={{ background: "hsla(142,60%,42%,0.12)", border: "1px solid hsla(142,60%,42%,0.35)" }}>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(142,60%,50%)" }} />
-            <span className="font-cormorant text-sm font-semibold tracking-wide" style={{ color: "hsl(142,60%,65%)" }}>Зоопарк рептилий</span>
-          </div>
-
           <a href={`tel:${PHONE}`} className="hidden lg:flex items-center gap-2 btn-gold px-4 py-2 rounded-full text-sm font-semibold">
             <Icon name="Phone" size={14} />
             {PHONE_DISPLAY}
