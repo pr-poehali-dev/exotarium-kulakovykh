@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const LOGO = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/ccea978b-e785-40af-a733-23243a096fe9.jpg";
 const HERO_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/388ca8e2-d3bd-4383-98d7-5ebd33d9d83a.jpg";
-const FAMILY_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/1e7b6c70-efd3-4127-a064-aa775e69b780.jpg";
+
 
 const CHAMELEON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/14e38299-548f-4117-a1e7-f97aa6db4d7f.png",
@@ -11,7 +11,6 @@ const CHAMELEON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/502e6078-68f1-4f6a-b82a-c01b030959b8.jpg",
 ];
 
-const CHAMELEON_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/8396d348-7632-4b66-bc84-b86fee6cc01c.jpg";
 
 const PHONE = "+79143428274";
 const PHONE_DISPLAY = "+7 914 342-82-74";
