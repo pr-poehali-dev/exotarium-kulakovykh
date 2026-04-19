@@ -276,14 +276,7 @@ export default function HeroSection() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl overflow-hidden green-glow">
-              <img src={CHAMELEON_IMG} alt="Хамелеон крупным планом" className="w-full h-72 object-cover" />
-            </div>
-            <div className="rounded-2xl overflow-hidden gold-glow">
-              <img src={FAMILY_IMG} alt="Семья с рептилиями" className="w-full h-72 object-cover" />
-            </div>
-          </div>
+
         </div>
       </section>
 
