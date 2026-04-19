@@ -76,8 +76,12 @@ function ChameleonCarousel() {
           key={i}
           src={src}
           alt={`Хамелеон ${i + 1}`}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-          style={{ opacity: i === current ? 1 : 0 }}
+          className="w-full h-full object-cover transition-opacity duration-700"
+          style={{
+            opacity: i === current ? 1 : 0,
+            position: i === 0 ? "relative" : "absolute",
+            inset: 0,
+          }}
         />
       ))}
       <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
