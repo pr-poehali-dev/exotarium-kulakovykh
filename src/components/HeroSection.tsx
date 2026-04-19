@@ -1,9 +1,16 @@
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
 
 const LOGO = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/ccea978b-e785-40af-a733-23243a096fe9.jpg";
 const HERO_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/388ca8e2-d3bd-4383-98d7-5ebd33d9d83a.jpg";
 const FAMILY_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/1e7b6c70-efd3-4127-a064-aa775e69b780.jpg";
-const CHAMELEON_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/8396d348-7632-4b66-bc84-b86fee6cc01c.jpg";
+
+const CHAMELEON_IMGS = [
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/8396d348-7632-4b66-bc84-b86fee6cc01c.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/c358f502-eb8e-4ab3-b34a-8af9a323dd07.png",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/b075d22a-7f50-45b0-9aa7-4931ad4e9c5e.png",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/08e6895e-a605-4997-8b7f-8850814a305d.jpg",
+];
 
 const PHONE = "+79143428274";
 const PHONE_DISPLAY = "+7 914 342-82-74";
@@ -50,6 +57,41 @@ const ANIMALS = [
   { emoji: "🐢", name: "Черепашка Наташка", desc: "Мудрая, спокойная и обаятельная" },
   { emoji: "🐍", name: "Полозы", desc: "Вызывают не страх, а искренний интерес" },
 ];
+
+function ChameleonCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % CHAMELEON_IMGS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="rounded-2xl overflow-hidden green-glow relative">
+      {CHAMELEON_IMGS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Хамелеон ${i + 1}`}
+          className="w-full h-72 object-cover absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: i === current ? 1 : 0, position: i === 0 ? "relative" : "absolute" }}
+        />
+      ))}
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+        {CHAMELEON_IMGS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className="w-2 h-2 rounded-full transition-all"
+            style={{ background: i === current ? "hsl(142,60%,55%)" : "hsla(255,255%,255%,0.4)" }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -237,9 +279,7 @@ export default function HeroSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl overflow-hidden green-glow">
-              <img src={CHAMELEON_IMG} alt="Хамелеон крупным планом" className="w-full h-72 object-cover" />
-            </div>
+            <ChameleonCarousel />
             <div className="rounded-2xl overflow-hidden gold-glow">
               <img src={FAMILY_IMG} alt="Семья с рептилиями" className="w-full h-72 object-cover" />
             </div>
