@@ -241,28 +241,6 @@ export default function HeroSection() {
 
       <div className="section-divider" />
 
-      {/* ATTENTION */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5"
-          style={{ background: "radial-gradient(ellipse at 30% 50%, hsl(142,60%,42%), transparent 60%)" }} />
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-bold mb-8">
-            Что может удивить сильнее<br />
-            <span className="gold-text">живых драконов?</span>
-          </h2>
-          <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-6" style={{ color: "hsla(45,30%,92%,0.7)" }}>
-            Хамелеон, который меняет окраску. Бородатая агама с добрым характером. Эублефары с бархатной кожей.
-            Полозы, которые вызывают не страх, а интерес. И черепашка Наташка — мудрая, спокойная и обаятельная.
-          </p>
-          <p className="text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: "hsla(45,30%,92%,0.7)" }}>
-            <strong className="text-white">Экзотариум Кулаковых</strong> — это не обычный зоопарк.
-            Это место, где рептилии становятся ближе, а знакомство с ними превращается в настоящее приключение.
-          </p>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
       {/* ANIMALS */}
       <section id="animals" className="py-24">
         <div className="container mx-auto px-4">
@@ -302,6 +280,28 @@ export default function HeroSection() {
               <img src={FAMILY_IMG} alt="Семья с рептилиями" className="w-full h-72 object-cover" />
             </div>
           </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* ATTENTION */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5"
+          style={{ background: "radial-gradient(ellipse at 30% 50%, hsl(142,60%,42%), transparent 60%)" }} />
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="font-cormorant text-4xl md:text-5xl font-bold mb-8">
+            Что может удивить сильнее<br />
+            <span className="gold-text">живых драконов?</span>
+          </h2>
+          <p className="text-lg leading-relaxed max-w-3xl mx-auto mb-6" style={{ color: "hsla(45,30%,92%,0.7)" }}>
+            Хамелеон, который меняет окраску. Бородатая агама с добрым характером. Эублефары с бархатной кожей.
+            Полозы, которые вызывают не страх, а интерес. И черепашка Наташка — мудрая, спокойная и обаятельная.
+          </p>
+          <p className="text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: "hsla(45,30%,92%,0.7)" }}>
+            <strong className="text-white">Экзотариум Кулаковых</strong> — это не обычный зоопарк.
+            Это место, где рептилии становятся ближе, а знакомство с ними превращается в настоящее приключение.
+          </p>
         </div>
       </section>
     </>
