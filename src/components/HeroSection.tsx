@@ -168,6 +168,14 @@ export default function HeroSection() {
           </div>
         </div>
 
+        <div className="absolute top-28 right-6 md:right-12 z-10 flex flex-col items-end gap-2">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full"
+            style={{ background: "hsla(142,60%,42%,0.15)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(142,60%,50%)" }} />
+            <span className="font-cormorant text-base font-semibold tracking-wide" style={{ color: "hsl(142,60%,70%)" }}>Зоопарк рептилий</span>
+          </div>
+        </div>
+
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
           <a href="#services">
             <Icon name="ChevronDown" size={28} className="opacity-50" style={{ color: "hsl(43,74%,52%)" }} />
