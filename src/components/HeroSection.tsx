@@ -241,7 +241,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 opacity-5"
           style={{ background: "radial-gradient(ellipse at 30% 50%, hsl(142,60%,42%), transparent 60%)" }} />
         <div className="container mx-auto px-4 text-center">
-          <div className="text-sm font-semibold mb-3 tracking-widest uppercase" style={{ color: "hsl(142,60%,50%)" }}>Добро пожаловать</div>
           <h2 className="font-cormorant text-4xl md:text-5xl font-bold mb-8">
             Что может удивить сильнее<br />
             <span className="gold-text">живых драконов?</span>
