@@ -258,7 +258,7 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Хамелеон" ? (
+              a.name === "Хамелеон Гоша" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                   <ChameleonCarousel />
