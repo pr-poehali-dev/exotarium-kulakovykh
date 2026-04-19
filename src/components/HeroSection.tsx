@@ -70,28 +70,32 @@ function ChameleonCarousel() {
   }, []);
 
   return (
-    <div className="rounded-2xl overflow-hidden w-full" style={{ aspectRatio: "1/1", position: "relative" }}>
-      <div
-        className="flex h-full transition-transform duration-700"
-        style={{ transform: `translateX(-${current * 100}%)`, width: `${CHAMELEON_IMGS.length * 100}%` }}
-      >
-        {CHAMELEON_IMGS.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={`Хамелеон ${i + 1}`}
-            style={{ width: `${100 / CHAMELEON_IMGS.length}%`, flexShrink: 0 }}
-            className="h-full object-cover"
-          />
-        ))}
-      </div>
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+    <div className="rounded-2xl w-full" style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
+      {CHAMELEON_IMGS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Хамелеон ${i + 1}`}
+          className="object-cover transition-opacity duration-700"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
         {CHAMELEON_IMGS.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className="w-2 h-2 rounded-full transition-all"
-            style={{ background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)" }}
+            style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)",
+              border: "none", cursor: "pointer", padding: 0,
+            }}
           />
         ))}
       </div>
