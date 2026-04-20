@@ -60,7 +60,7 @@ export default function TrustFaqCta() {
             ))}
           </div>
 
-          <div className="rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center"
+          <div className="rounded-3xl p-8 md:p-12 grid md:grid-cols-3 gap-10 items-center"
             style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
             <div>
               <div className="text-5xl mb-4">😰</div>
@@ -72,6 +72,82 @@ export default function TrustFaqCta() {
                 на смену тревоге приходит восхищение. Мы умеем мягко и бережно знакомить людей с рептилиями — и детей, и взрослых.
               </p>
             </div>
+
+            {/* Крутящаяся карточка */}
+            <div className="flex justify-center items-center">
+              <div style={{ perspective: "800px" }}>
+                <div
+                  style={{
+                    width: "180px",
+                    height: "220px",
+                    animation: "card-spin 4s linear infinite",
+                    transformStyle: "preserve-3d",
+                    position: "relative",
+                  }}
+                >
+                  <style>{`
+                    @keyframes card-spin {
+                      0%   { transform: rotateY(0deg); }
+                      100% { transform: rotateY(360deg); }
+                    }
+                  `}</style>
+                  {/* Лицевая сторона */}
+                  <div style={{
+                    position: "absolute", inset: 0, backfaceVisibility: "hidden",
+                    borderRadius: "20px", overflow: "hidden",
+                    border: "2px solid hsla(43,74%,52%,0.7)",
+                    boxShadow: "0 0 30px hsla(142,60%,42%,0.4), 0 0 60px hsla(43,74%,52%,0.15)",
+                  }}>
+                    <img
+                      src="https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/88daf70a-1759-4e02-829b-af045355430d.jpg"
+                      alt="Ребёнок с ящерицей"
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                    <div style={{
+                      position: "absolute", bottom: 0, left: 0, right: 0,
+                      padding: "10px 12px",
+                      background: "linear-gradient(transparent, rgba(0,0,0,0.75))",
+                      color: "hsl(43,74%,72%)",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      textAlign: "center",
+                      letterSpacing: "0.05em",
+                    }}>
+                      Дети обожают! 🦎
+                    </div>
+                  </div>
+                  {/* Обратная сторона */}
+                  <div style={{
+                    position: "absolute", inset: 0, backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                    borderRadius: "20px",
+                    border: "2px solid hsla(43,74%,52%,0.7)",
+                    boxShadow: "0 0 30px hsla(142,60%,42%,0.4)",
+                    background: "linear-gradient(135deg, hsl(142,45%,10%), hsl(150,40%,7%))",
+                    display: "flex", flexDirection: "column",
+                    alignItems: "center", justifyContent: "center", gap: "10px",
+                    padding: "20px",
+                  }}>
+                    <div style={{ fontSize: "40px" }}>🦎</div>
+                    <div style={{
+                      fontFamily: "Cormorant Garamond, serif",
+                      fontSize: "16px", fontWeight: 700,
+                      color: "hsl(43,74%,62%)",
+                      textAlign: "center", lineHeight: 1.3,
+                    }}>
+                      Экзотариум<br />Кулаковых
+                    </div>
+                    <div style={{
+                      fontSize: "11px", color: "hsla(45,30%,92%,0.5)",
+                      textAlign: "center",
+                    }}>
+                      г. Артём
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-3">
               {[
                 { e: "😨", text: "До: «Нет, это же змея, я боюсь!»", active: false },

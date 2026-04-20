@@ -5,40 +5,33 @@ export default function LizardCursor() {
   const [angle, setAngle] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const prev = useRef({ x: -200, y: -200 });
-  const current = useRef({ x: -200, y: -200 });
-  const target = useRef({ x: -200, y: -200 });
+  const posRef = useRef({ x: -200, y: -200 });
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
-      target.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener("mousemove", onMove);
+      const dx = e.clientX - prev.current.x;
+      const dy = e.clientY - prev.current.y;
+      const dist = Math.sqrt(dx ** 2 + dy ** 2);
 
-    const animate = () => {
-      const dx = target.current.x - current.current.x;
-      const dy = target.current.y - current.current.y;
-      current.current = {
-        x: current.current.x + dx * 0.12,
-        y: current.current.y + dy * 0.12,
-      };
-
-      const moveDx = current.current.x - prev.current.x;
-      const moveDy = current.current.y - prev.current.y;
-      const dist = Math.sqrt(moveDx ** 2 + moveDy ** 2);
-
-      if (dist > 0.5) {
-        const newAngle = Math.atan2(moveDy, moveDx) * (180 / Math.PI);
+      if (dist > 1) {
+        const newAngle = Math.atan2(dy, dx) * (180 / Math.PI);
         setAngle(newAngle);
         setFlipped(Math.abs(newAngle) > 90);
       }
 
-      prev.current = { ...current.current };
-      setPos({ x: current.current.x, y: current.current.y });
-      rafRef.current = requestAnimationFrame(animate);
+      prev.current = { x: e.clientX, y: e.clientY };
+      posRef.current = { x: e.clientX, y: e.clientY };
     };
 
-    rafRef.current = requestAnimationFrame(animate);
+    window.addEventListener("mousemove", onMove);
+
+    const render = () => {
+      setPos({ ...posRef.current });
+      rafRef.current = requestAnimationFrame(render);
+    };
+    rafRef.current = requestAnimationFrame(render);
+
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(rafRef.current);
@@ -60,7 +53,6 @@ export default function LizardCursor() {
           lineHeight: 1,
           userSelect: "none",
           filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.6))",
-          transition: "transform 0.05s linear",
         }}
       >
         🦎
