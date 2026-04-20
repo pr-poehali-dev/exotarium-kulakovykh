@@ -286,10 +286,22 @@ export default function ContactsSection() {
                 <div className="text-xs text-muted-foreground">Мир чешуи, чудес и живых эмоций</div>
               </div>
             </div>
-            <div className="text-center text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>
-              <div>г. Артём, Лазо 11, ДЦ «Непоседа»</div>
-              <a href={`tel:${PHONE}`} className="hover:opacity-70 transition-opacity" style={{ color: "hsl(43,74%,55%)" }}>
-                {PHONE_DISPLAY}
+            <div className="flex flex-col items-center gap-3">
+              <div className="text-center text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>
+                <div>г. Артём, Лазо 11, ДЦ «Непоседа»</div>
+                <a href={`tel:${PHONE}`} className="hover:opacity-70 transition-opacity" style={{ color: "hsl(43,74%,55%)" }}>
+                  {PHONE_DISPLAY}
+                </a>
+              </div>
+              <a
+                href="https://t.me/exotarium_vl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2 rounded-full font-semibold text-sm transition-all hover:opacity-80"
+                style={{ background: "hsla(200,90%,50%,0.15)", border: "1px solid hsla(200,90%,50%,0.4)", color: "hsl(200,90%,65%)" }}
+              >
+                <Icon name="Send" size={15} />
+                Telegram-канал
               </a>
             </div>
             <div className="text-xs text-center space-y-1" style={{ color: "hsla(45,30%,92%,0.5)" }}>
