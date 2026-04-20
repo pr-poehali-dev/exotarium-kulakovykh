@@ -215,6 +215,9 @@ export default function ContactsSection() {
                         color: "hsl(45,30%,92%)",
                       }}
                     />
+                    <p className="text-xs mt-1.5" style={{ color: "hsla(43,74%,62%,0.7)" }}>
+                      Вводите номер корректно, чтобы мы смогли с вами связаться
+                    </p>
                   </div>
                   <div>
                     <label className="text-xs text-muted-foreground mb-1.5 block">Сообщение</label>
