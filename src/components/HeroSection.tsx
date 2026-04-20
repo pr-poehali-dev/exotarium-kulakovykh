@@ -168,7 +168,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="absolute top-28 right-6 md:right-12 z-10 flex flex-col items-end gap-2">
+        <div className="hidden md:flex absolute top-28 right-12 z-10 flex-col items-end gap-2">
           <div className="flex items-center gap-2 px-4 py-2 rounded-full"
             style={{ background: "hsla(142,60%,42%,0.15)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(142,60%,50%)" }} />
