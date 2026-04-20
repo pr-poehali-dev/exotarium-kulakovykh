@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustFaqCta from "@/components/TrustFaqCta";
+import ReviewsSection from "@/components/ReviewsSection";
 import ContactsSection from "@/components/ContactsSection";
 
 export default function Index() {
@@ -9,6 +10,7 @@ export default function Index() {
       <Navbar />
       <HeroSection />
       <TrustFaqCta />
+      <ReviewsSection />
       <ContactsSection />
     </div>
   );
