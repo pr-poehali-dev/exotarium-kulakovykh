@@ -131,6 +131,24 @@ export default function ContactsSection() {
                 </div>
               ))}
 
+              <a
+                href="https://t.me/exotarium_vl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-5 rounded-2xl transition-all hover:opacity-80"
+                style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}
+              >
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: "hsla(43,74%,52%,0.15)", border: "1px solid hsla(43,74%,52%,0.3)" }}>
+                  <Icon name="Send" size={18} style={{ color: "hsl(43,74%,62%)" }} />
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground mb-1">Telegram</div>
+                  <div className="font-medium" style={{ color: "hsl(43,74%,62%)" }}>@exotarium_vl</div>
+                </div>
+                <Icon name="ExternalLink" size={14} className="ml-auto opacity-40" />
+              </a>
+
               <div className="rounded-2xl overflow-hidden green-glow relative" style={{ height: "18rem" }}>
                 <iframe
                   src="https://yandex.ru/map-widget/v1/?ll=132.766788,43.360263&z=15&pt=132.766788,43.360263,pm2gnm"
