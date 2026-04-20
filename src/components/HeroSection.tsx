@@ -162,6 +162,13 @@ export default function HeroSection() {
                   Наши услуги →
                 </button>
               </a>
+              <a href="https://www.vl.ru/ekzotariumm?lsearch=экзотариум&utm_source=vl.ru&utm_medium=header_search#comments" target="_blank" rel="noopener noreferrer">
+                <button className="px-8 py-4 rounded-full text-base font-semibold transition-all hover:bg-white/10 flex items-center gap-2"
+                  style={{ border: "1px solid hsla(43,74%,62%,0.5)", color: "hsl(43,74%,62%)" }}>
+                  <Icon name="Star" size={18} />
+                  Отзывы
+                </button>
+              </a>
             </div>
 
             <div className="flex flex-wrap gap-6 mt-12">
