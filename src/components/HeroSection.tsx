@@ -120,10 +120,17 @@ export default function HeroSection() {
 
         <div className="container mx-auto px-4 pt-24 relative z-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
-              style={{ background: "hsla(142,60%,42%,0.15)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(142,60%,50%)" }} />
-              <span className="text-sm" style={{ color: "hsl(142,60%,65%)" }}>г. Артём · Лазо 11, ДЦ «Непоседа»</span>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+                style={{ background: "hsla(142,60%,42%,0.15)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(142,60%,50%)" }} />
+                <span className="text-sm" style={{ color: "hsl(142,60%,65%)" }}>г. Артём · Лазо 11, ДЦ «Непоседа»</span>
+              </div>
+              <div className="inline-flex md:hidden items-center gap-2 px-4 py-2 rounded-full"
+                style={{ background: "hsla(142,60%,42%,0.15)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(142,60%,50%)" }} />
+                <span className="font-cormorant text-base font-semibold tracking-wide" style={{ color: "hsl(142,60%,70%)" }}>Зоопарк рептилий</span>
+              </div>
             </div>
 
             <h1 className="font-cormorant font-bold leading-none mb-4 uppercase"
@@ -168,7 +175,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="absolute top-44 md:top-28 right-4 md:right-12 z-10 flex flex-col items-end gap-2">
+        <div className="hidden md:flex absolute top-28 right-12 z-10 flex-col items-end gap-2">
           <div className="flex items-center gap-2 px-4 py-2 rounded-full"
             style={{ background: "hsla(142,60%,42%,0.15)", border: "1px solid hsla(142,60%,42%,0.4)" }}>
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "hsl(142,60%,50%)" }} />
