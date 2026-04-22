@@ -5,6 +5,11 @@ const LOGO = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222
 const HERO_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/388ca8e2-d3bd-4383-98d7-5ebd33d9d83a.jpg";
 
 
+const BOA_IMGS = [
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/fb35a070-5f03-490a-84c1-8b55ea08f09f.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/523bc794-716e-4a2f-bc73-af766f6d8e64.jpg",
+];
+
 const BEARDED_DRAGON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f4f3f9e2-86e1-4a44-a5be-33d01d671c4e.jpg",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/c20fc8f6-c917-4026-838e-eb12122169ac.jpg",
@@ -65,6 +70,50 @@ const ANIMALS = [
   { emoji: "🐢", name: "Черепашка Наташка", desc: "Мудрая, спокойная и обаятельная" },
   { emoji: "🐍", name: "Полозы", desc: "Вызывают не страх, а искренний интерес" },
 ];
+
+function BoaCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % BOA_IMGS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="rounded-2xl w-full" style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
+      {BOA_IMGS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Императорский удав ${i + 1}`}
+          className="object-cover transition-opacity duration-700"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
+        {BOA_IMGS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)",
+              border: "none", cursor: "pointer", padding: 0,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function BeardedDragonCarousel() {
   const [current, setCurrent] = useState(0);
@@ -329,10 +378,10 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" ? (
+              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" || a.name === "Императорский удав" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
-                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : <ChameleonCarousel />}
+                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : a.name === "Императорский удав" ? <BoaCarousel /> : <ChameleonCarousel />}
                   <div className="p-4 text-center">
                     <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
                     <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
