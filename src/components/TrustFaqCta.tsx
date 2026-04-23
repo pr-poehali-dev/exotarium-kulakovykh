@@ -63,17 +63,6 @@ export default function TrustFaqCta() {
           <div className="rounded-3xl p-8 md:p-12 grid md:grid-cols-3 gap-10 items-center"
             style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
             <div>
-              <div className="mb-4">
-                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M44 14c0-3-2.5-5-5.5-5C35 9 33 11.5 33 14c0 2 1 3.5 2.5 4.5C32 20 29 22.5 27 26c-2 3.5-2.5 7.5-1.5 11 1 3.2 3.2 5.8 6 7-1.5 1-3.5 1.5-5.5 1.5-5.5 0-10-4.5-10-10 0-2 .5-4 1.5-5.5L20 28c-1.5 2-2 4.5-2 7 0 7.7 6.3 14 14 14 3.5 0 6.8-1.3 9.2-3.5.5-.4.5-1.2 0-1.6-3-2.5-4.7-6-4.2-9.8.5-3.5 2.8-6.5 6-8 .8-.4 1-1.3.5-2-.3-.4-.8-.7-1.3-.6C40.5 24 39 24 37.5 23.5c-1-.5-1.5-1.5-1.5-2.5 0-1.5 1.2-2.8 2.8-2.8.5 0 1 .2 1.5.5.7.5 1.7.3 2-.5.2-.4.2-.9-.1-1.2C41.2 15.8 40 15 38.5 14.5c.2-.5.5-1 .5-1.5 0-1.5 1.5-3 3.5-3 .5 0 1 .5 1.5 1 .5.5 1.5.5 2 0s.5-1.5 0-2C45.5 8 44.8 7.5 44 7.5V14z" fill="none"/>
-                  <path d="M10 30 Q18 14 28 18 Q38 22 36 32 Q34 42 26 44 Q16 46 12 38 Q9 33 10 30Z" fill="none" stroke="hsl(45,70%,55%)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M10 30 C14 20 24 12 34 16 C44 20 46 32 40 40 C36 46 28 48 22 44 C14 40 8 34 10 30" fill="none" stroke="hsl(45,70%,55%)" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M36 14 C40 10 46 10 48 14" fill="none" stroke="hsl(150,60%,45%)" strokeWidth="2.5" strokeLinecap="round"/>
-                  <path d="M48 14 L52 12 M48 14 L52 16" fill="none" stroke="hsl(150,60%,45%)" strokeWidth="2" strokeLinecap="round"/>
-                  <circle cx="42" cy="11" r="1.5" fill="hsl(45,70%,55%)"/>
-                  <path d="M12 28 C18 16 30 12 40 18 C48 23 50 34 44 42 C40 48 30 50 22 46 C12 41 8 34 12 28" fill="none" stroke="hsl(150,50%,35%)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
-                </svg>
-              </div>
               <h3 className="font-cormorant text-3xl font-bold mb-4">
                 Боитесь змей?<br /><span className="gold-text">Это нормально</span>
               </h3>
