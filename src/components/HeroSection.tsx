@@ -17,12 +17,9 @@ const POLOZ_IMGS = [
 ];
 
 const CHAMELEON_IMGS = [
-  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/14e38299-548f-4117-a1e7-f97aa6db4d7f.png",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/51eefb17-4601-409f-840b-56042a05a11f.png",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/502e6078-68f1-4f6a-b82a-c01b030959b8.jpg",
-  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/01c15b7d-ed26-4caa-bfca-f89ebf64b637.png",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/341bc78d-28b3-4549-82d0-6f78ec4fc9c3.png",
-  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/c405b535-dce2-401d-b881-fae7101deb90.jpg",
 ];
 
 
