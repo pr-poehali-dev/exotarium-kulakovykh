@@ -18,6 +18,13 @@ const POLOZ_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f1329aaa-a12f-471c-a265-f6235c656ff6.jpg",
 ];
 
+const LIZARD_IMGS = [
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/d76782fd-4c76-40d5-b27c-d6cf1dffa377.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/ba9a28b9-0dba-4494-b935-adec0eb26309.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f5e9a36b-4607-48f9-89e9-7bba417d17c7.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/06181745-bc2e-4a3f-a844-a41e70a4d171.jpg",
+];
+
 const CHAMELEON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/51eefb17-4601-409f-840b-56042a05a11f.png",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/502e6078-68f1-4f6a-b82a-c01b030959b8.jpg",
@@ -68,6 +75,50 @@ const ANIMALS = [
   { emoji: "🐍", name: "Змеи", desc: "Вызывают не страх, а искренний интерес" },
 ];
 
+
+function LizardCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % LIZARD_IMGS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="rounded-2xl w-full" style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
+      {LIZARD_IMGS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Ящерица ${i + 1}`}
+          className="object-cover transition-opacity duration-700"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
+        {LIZARD_IMGS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)",
+              border: "none", cursor: "pointer", padding: 0,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function BeardedDragonCarousel() {
   const [current, setCurrent] = useState(0);
@@ -379,7 +430,7 @@ export default function HeroSection() {
               a.name === "Ящерицы" || a.name === "Змеи" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
-                  {a.name === "Змеи" ? <PolozCarousel /> : <ChameleonCarousel />}
+                  {a.name === "Змеи" ? <PolozCarousel /> : <LizardCarousel />}
                   <div className="p-4 text-center">
                     <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
                     <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
