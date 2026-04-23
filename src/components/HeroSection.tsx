@@ -70,7 +70,6 @@ const SERVICES = [
 const ANIMALS = [
   { emoji: "🦎", name: "Хамелеон Гоша", desc: "Мастер маскировки" },
   { emoji: "🐉", name: "Бородатая агама", desc: "Дружелюбный «дракончик» с добрым характером" },
-  { emoji: "🐍", name: "Императорский удав", desc: "Главная звезда праздников и шоу" },
   { emoji: "🐊", name: "Эублефары", desc: "Бархатная кожа и огромные добрые глаза" },
   { emoji: "🐢", name: "Черепашка Наташка", desc: "Мудрая, спокойная и обаятельная" },
   { emoji: "🐍", name: "Полозы", desc: "Вызывают не страх, а искренний интерес" },
@@ -427,15 +426,12 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" || a.name === "Императорский удав" || a.name === "Полозы" ? (
+              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" || a.name === "Полозы" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
-                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : a.name === "Императорский удав" ? <BoaCarousel /> : a.name === "Полозы" ? <PolozCarousel /> : <ChameleonCarousel />}
+                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : a.name === "Полозы" ? <PolozCarousel /> : <ChameleonCarousel />}
                   <div className="p-4 text-center">
-                    <div className="font-cormorant text-xl font-bold mb-1">
-                      {a.name}
-                      {a.name === "Императорский удав" && <span className="ml-2 text-base font-normal" style={{ color: "hsla(45,30%,92%,0.55)" }}>Ягодка 🍓</span>}
-                    </div>
+                    <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
                     <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
                   </div>
                 </div>
