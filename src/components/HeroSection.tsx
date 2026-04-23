@@ -15,6 +15,11 @@ const BEARDED_DRAGON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/c20fc8f6-c917-4026-838e-eb12122169ac.jpg",
 ];
 
+const POLOZ_IMGS = [
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/251f22d5-4c9f-4469-9262-e320b07aae44.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/645d49d9-4a5f-42d1-892f-71b79f2a82e9.jpg",
+];
+
 const CHAMELEON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/14e38299-548f-4117-a1e7-f97aa6db4d7f.png",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/51eefb17-4601-409f-840b-56042a05a11f.png",
@@ -144,6 +149,50 @@ function BeardedDragonCarousel() {
       ))}
       <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
         {BEARDED_DRAGON_IMGS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)",
+              border: "none", cursor: "pointer", padding: 0,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PolozCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % POLOZ_IMGS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="rounded-2xl w-full" style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
+      {POLOZ_IMGS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Полоз ${i + 1}`}
+          className="object-cover transition-opacity duration-700"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
+        {POLOZ_IMGS.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
@@ -378,10 +427,10 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" || a.name === "Императорский удав" ? (
+              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" || a.name === "Императорский удав" || a.name === "Полозы" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
-                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : a.name === "Императорский удав" ? <BoaCarousel /> : <ChameleonCarousel />}
+                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : a.name === "Императорский удав" ? <BoaCarousel /> : a.name === "Полозы" ? <PolozCarousel /> : <ChameleonCarousel />}
                   <div className="p-4 text-center">
                     <div className="font-cormorant text-xl font-bold mb-1">
                       {a.name}
