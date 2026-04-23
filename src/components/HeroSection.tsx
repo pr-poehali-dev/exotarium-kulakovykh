@@ -23,6 +23,9 @@ const LIZARD_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/ba9a28b9-0dba-4494-b935-adec0eb26309.jpg",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f5e9a36b-4607-48f9-89e9-7bba417d17c7.jpg",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/06181745-bc2e-4a3f-a844-a41e70a4d171.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/0c3f62e9-7d51-4108-b98f-a32cd219f75c.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f834d6d9-6553-49bb-9eb5-ee270c5dff08.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/dc1f463c-902a-4c4f-9791-511e51198a2e.jpg",
 ];
 
 const OTHERS_IMGS = [
