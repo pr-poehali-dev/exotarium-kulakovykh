@@ -63,7 +63,7 @@ const SERVICES = [
 ];
 
 const ANIMALS = [
-  { emoji: "🦎", name: "Хамелеон Гоша", desc: "Мастер маскировки" },
+  { emoji: "🦎", name: "Ящерицы", desc: "Мастер маскировки" },
   { emoji: "🌟", name: "И другие Герои нашего зоопарка", desc: "Каждый питомец — маленькое открытие" },
   { emoji: "🐍", name: "Змеи", desc: "Вызывают не страх, а искренний интерес" },
 ];
@@ -376,7 +376,7 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Хамелеон Гоша" || a.name === "Змеи" ? (
+              a.name === "Ящерицы" || a.name === "Змеи" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
                   {a.name === "Змеи" ? <PolozCarousel /> : <ChameleonCarousel />}
