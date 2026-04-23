@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://exotarium-kulakovykh.poehali.dev/sitemap.xml
