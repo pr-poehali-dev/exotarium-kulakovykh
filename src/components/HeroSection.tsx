@@ -64,7 +64,7 @@ const SERVICES = [
 
 const ANIMALS = [
   { emoji: "🦎", name: "Хамелеон Гоша", desc: "Мастер маскировки" },
-  { emoji: "🐉", name: "Бородатая агама", desc: "Дружелюбный «дракончик» с добрым характером" },
+  { emoji: "🐉", name: "Ящерицы", desc: "Дружелюбный «дракончик» с добрым характером" },
   { emoji: "🐍", name: "Змеи", desc: "Вызывают не страх, а искренний интерес" },
 ];
 
@@ -376,10 +376,10 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Хамелеон Гоша" || a.name === "Бородатая агама" || a.name === "Змеи" ? (
+              a.name === "Хамелеон Гоша" || a.name === "Ящерицы" || a.name === "Змеи" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
-                  {a.name === "Бородатая агама" ? <BeardedDragonCarousel /> : a.name === "Змеи" ? <PolozCarousel /> : <ChameleonCarousel />}
+                  {a.name === "Ящерицы" ? <BeardedDragonCarousel /> : a.name === "Змеи" ? <PolozCarousel /> : <ChameleonCarousel />}
                   <div className="p-4 text-center">
                     <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
                     <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
