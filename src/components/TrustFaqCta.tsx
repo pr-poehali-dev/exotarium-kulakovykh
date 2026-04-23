@@ -64,7 +64,7 @@ export default function TrustFaqCta() {
             style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
             <div>
               <h3 className="font-cormorant text-3xl font-bold mb-4">
-                Боитесь змей?<br /><span className="gold-text">Это нормально</span>
+                Боитесь змей и ящериц?<br /><span className="gold-text">Это нормально</span>
               </h3>
               <p className="leading-relaxed" style={{ color: "hsla(45,30%,92%,0.65)" }}>
                 Часто страх исчезает уже после первого знакомства. Когда видишь спокойное, красивое и грациозное животное вблизи,
