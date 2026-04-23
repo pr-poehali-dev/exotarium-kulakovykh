@@ -326,7 +326,7 @@ export default function ContactsSection() {
               </a>
             </div>
             <div className="text-xs text-center space-y-1" style={{ color: "hsla(45,30%,92%,0.5)" }}>
-              <div>© 2024 Экзотариум Кулаковых</div>
+              <div>© 2024–2026 Экзотариум Кулаковых</div>
               <div>Контактный зоопарк · Выездные программы</div>
               <div className="flex gap-3 justify-center mt-1">
                 <button onClick={() => setModal("privacy")}
