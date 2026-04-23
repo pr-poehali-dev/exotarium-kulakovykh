@@ -5,10 +5,6 @@ const LOGO = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222
 const HERO_IMG = "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/files/388ca8e2-d3bd-4383-98d7-5ebd33d9d83a.jpg";
 
 
-const BOA_IMGS = [
-  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/fb35a070-5f03-490a-84c1-8b55ea08f09f.jpg",
-  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/523bc794-716e-4a2f-bc73-af766f6d8e64.jpg",
-];
 
 const BEARDED_DRAGON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f4f3f9e2-86e1-4a44-a5be-33d01d671c4e.jpg",
@@ -75,49 +71,6 @@ const ANIMALS = [
   { emoji: "🐍", name: "Полозы", desc: "Вызывают не страх, а искренний интерес" },
 ];
 
-function BoaCarousel() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % BOA_IMGS.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="rounded-2xl w-full" style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
-      {BOA_IMGS.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt={`Императорский удав ${i + 1}`}
-          className="object-cover transition-opacity duration-700"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            opacity: i === current ? 1 : 0,
-          }}
-        />
-      ))}
-      <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
-        {BOA_IMGS.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            style={{
-              width: 8, height: 8, borderRadius: "50%",
-              background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)",
-              border: "none", cursor: "pointer", padding: 0,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function BeardedDragonCarousel() {
   const [current, setCurrent] = useState(0);
