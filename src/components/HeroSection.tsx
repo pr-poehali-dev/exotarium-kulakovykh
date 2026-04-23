@@ -25,6 +25,12 @@ const LIZARD_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/06181745-bc2e-4a3f-a844-a41e70a4d171.jpg",
 ];
 
+const OTHERS_IMGS = [
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/727df747-b7ef-4d26-bb1c-dfa9e7e52e2c.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/d3f27afe-e74c-4df9-8e54-824d3a5b9e50.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/10dc7e22-4d63-4659-a8b1-53762dabd1bb.jpg",
+];
+
 const CHAMELEON_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/51eefb17-4601-409f-840b-56042a05a11f.png",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/502e6078-68f1-4f6a-b82a-c01b030959b8.jpg",
@@ -75,6 +81,50 @@ const ANIMALS = [
   { emoji: "🐍", name: "Змеи", desc: "Вызывают не страх, а искренний интерес" },
 ];
 
+
+function OthersCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % OTHERS_IMGS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="rounded-2xl w-full" style={{ position: "relative", paddingBottom: "100%", overflow: "hidden" }}>
+      {OTHERS_IMGS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Герой зоопарка ${i + 1}`}
+          className="object-cover transition-opacity duration-700"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
+      <div style={{ position: "absolute", bottom: 12, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 8, zIndex: 10 }}>
+        {OTHERS_IMGS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: i === current ? "hsl(142,60%,55%)" : "rgba(255,255,255,0.4)",
+              border: "none", cursor: "pointer", padding: 0,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function LizardCarousel() {
   const [current, setCurrent] = useState(0);
@@ -427,10 +477,10 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {ANIMALS.map((a) => (
-              a.name === "Ящерицы" || a.name === "Змеи" ? (
+              a.name === "Ящерицы" || a.name === "Змеи" || a.name === "И другие Герои нашего зоопарка" ? (
                 <div key={a.name} className="card-hover rounded-2xl overflow-hidden group"
                   style={{ background: "hsl(150,30%,10%)", border: "1px solid hsl(150,25%,18%)" }}>
-                  {a.name === "Змеи" ? <PolozCarousel /> : <LizardCarousel />}
+                  {a.name === "Змеи" ? <PolozCarousel /> : a.name === "И другие Герои нашего зоопарка" ? <OthersCarousel /> : <LizardCarousel />}
                   <div className="p-4 text-center">
                     <div className="font-cormorant text-xl font-bold mb-1">{a.name}</div>
                     <div className="text-sm" style={{ color: "hsla(45,30%,92%,0.55)" }}>{a.desc}</div>
