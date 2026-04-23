@@ -14,6 +14,8 @@ const BEARDED_DRAGON_IMGS = [
 const POLOZ_IMGS = [
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/251f22d5-4c9f-4469-9262-e320b07aae44.jpg",
   "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/645d49d9-4a5f-42d1-892f-71b79f2a82e9.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/8b654e87-95a6-4938-b262-1f2df5067103.jpg",
+  "https://cdn.poehali.dev/projects/f562fa50-a2d2-4c54-9fe6-ffa698222548/bucket/f1329aaa-a12f-471c-a265-f6235c656ff6.jpg",
 ];
 
 const CHAMELEON_IMGS = [
