@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
 const REVIEWS = [
@@ -39,6 +39,13 @@ export default function ReviewsSection() {
 
   const prev = () => setCurrent((c) => (c - 1 + REVIEWS.length) % REVIEWS.length);
   const next = () => setCurrent((c) => (c + 1) % REVIEWS.length);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % REVIEWS.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, []);
 
   const review = REVIEWS[current];
 
