@@ -43,7 +43,7 @@ export default function ReviewsSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((c) => (c + 1) % REVIEWS.length);
-    }, 10000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
